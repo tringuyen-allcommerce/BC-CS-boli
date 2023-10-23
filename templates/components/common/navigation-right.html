@@ -1,0 +1,193 @@
+<nav class="navUser navUser--right">
+    {{> components/common/currency-selector}}
+    <ul class="navUser-section navUser-section--alt">
+        {{#if theme_settings.navPages-show-cart}}
+        <li class="navUser-item navUser-item--cart hide-desktop">
+            <a
+                class="navUser-action"
+                data-cart-preview
+                href="{{urls.cart}}">
+                <span class="navUser-item-icon navUser-item-cartIcon emthemesModez-icon-linear-cart2"></span>
+                <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+            </a>
+        </li>
+        {{else}}
+        <li class="navUser-item navUser-item--cart">
+            <a
+                class="navUser-action"
+                data-cart-preview
+                data-dropdown="cart-preview-dropdown"
+                data-options="align:right"
+                href="{{urls.cart}}">
+                <span class="navUser-item-icon navUser-item-cartIcon emthemesModez-icon-linear-cart2"></span>
+                <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+            </a>
+
+            <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+        </li>
+        {{/if}}
+
+        <li class="navUser-item">
+            <a class="navUser-action navUser-item--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span></a>
+        </li>
+
+        {{#if customer.store_credit.value '>' 0}}
+            <li class="navUser-item">
+                <a class="navUser-action navUser-action--storeCredit"
+                   data-dropdown="storeCredit-dropdown"
+                   data-options="align:bottom"
+                   href="{{urls.cart}}">
+                        <span class="navUser-action-divider">{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}</span>
+                </a>
+                <div class="dropdown-menu" id="storeCredit-dropdown" data-dropdown-content aria-hidden="true">
+                    {{{lang 'common.store_credit' store_credit=customer.store_credit.formatted}}}
+                </div>
+            </li>
+        {{/if}}
+
+        <li class="navUser-item navUser-item--account">
+            <a class="navUser-action" href="javascript:void(0);">{{lang 'common.account'}}</a>
+            <ul class="navUser-childList navUser-childList--account">
+                {{#if customer}}
+                    <li class="navUser-childItem">
+                        <a class="navUser-childAction" href="{{urls.account.index}}">{{lang 'common.account'}}</a>
+                    </li>
+                    <li class="navUser-childItem-divider"></li>
+                    <li class="navUser-childItem">
+                        <a class="navUser-childAction" href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+                    </li>
+                    <li class="navUser-childItem-divider"></li>
+                    <li class="navUser-childItem">
+                        <a class="navUser-childAction" href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
+                    </li>
+                    <li class="navUser-childItem-divider"></li>
+                    <li class="navUser-childItem">
+                        <a class="navUser-childAction" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                    </li>
+                {{else}}
+                    <li class="navUser-childItem navUser-childItem--login">
+                        <a class="navUser-childAction navUser-childAction--login" href="{{urls.auth.login}}">{{lang 'common.login'}}</a>
+                    </li>
+                    {{#if settings.account_creation_enabled}}
+                        <li class="navUser-childItem navUser-childItem--register">
+                            <span class="navUser-childItem-label">{{lang 'login.new_customer.heading'}}</span>
+                            <a class="navUser-childAction  navUser-childAction--register" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+                        </li>
+                    {{/if}}
+                    <li class="navUser-childItem">
+                        <a class="navUser-childAction" href="{{urls.account.index}}">{{lang 'common.account'}}</a>
+                    </li>
+                    <li class="navUser-childItem-divider"></li>
+                    <li class="navUser-childItem">
+                        <a class="navUser-childAction" href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+                    </li>
+                    <li class="navUser-childItem-divider"></li>
+                    <li class="navUser-childItem">
+                        <a class="navUser-childAction" href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
+                    </li>
+                {{/if}}
+                {{#if settings.gift_certificates_enabled}}
+                    <li class="navUser-childItem navUser-childItem--giftCert">
+                        <a class="navUser-childAction navUser-childAction--giftCert" href="{{urls.gift_certificate.purchase}}">
+                            <img src="{{cdn 'img/gift-icon.png'}}" alt="{{lang 'common.gift_cert'}}"/>
+                            <span class="navUser-item-giftCertLabel">{{lang 'common.gift_cert'}}</span>
+                        </a>
+                    </li>
+                {{/if}}
+            </ul>
+        </li>
+
+        {{#if (lang 'header.custom_links.title') '!==' ' '}}
+            <li class="navUser-item navUser-item--support">
+                <a class="navUser-action" href="javascript:void(0);">{{lang 'header.custom_links.title'}}</a>
+                <ul class="navUser-childList">
+                    {{#if (lang 'header.custom_links.link_1.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_1.url'}}">{{lang 'header.custom_links.link_1.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_2.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_2.url'}}">{{lang 'header.custom_links.link_2.title'}}</a>
+                        </li>
+                    {{/if}}
+                    <li class="navUser-childItem-divider"></li>
+                    {{#if (lang 'header.custom_links.link_3.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_3.url'}}">{{lang 'header.custom_links.link_3.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_4.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_4.url'}}">{{lang 'header.custom_links.link_4.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_5.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_5.url'}}">{{lang 'header.custom_links.link_5.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_6.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_6.url'}}">{{lang 'header.custom_links.link_6.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_7.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_7.url'}}">{{lang 'header.custom_links.link_7.title'}}</a>
+                        </li>
+                    {{/if}}
+                    <li class="navUser-childItem-divider"></li>
+                    {{#if (lang 'header.custom_links.link_8.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_8.url'}}">{{lang 'header.custom_links.link_8.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_9.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_9.url'}}">{{lang 'header.custom_links.link_9.title'}}</a>
+                        </li>
+                    {{/if}}
+                    <li class="navUser-childItem-divider"></li>
+                    {{#if (lang 'header.custom_links.link_10.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_10.url'}}">{{lang 'header.custom_links.link_10.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_11.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_11.url'}}">{{lang 'header.custom_links.link_11.title'}}</a>
+                        </li>
+                    {{/if}}
+                    <li class="navUser-childItem-divider"></li>
+                    {{#if (lang 'header.custom_links.link_12.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_12.url'}}">{{lang 'header.custom_links.link_12.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_13.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_13.url'}}">{{lang 'header.custom_links.link_13.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_14.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_14.url'}}">{{lang 'header.custom_links.link_14.title'}}</a>
+                        </li>
+                    {{/if}}
+                    {{#if (lang 'header.custom_links.link_15.title') '!==' ' '}}
+                        <li class="navUser-childItem">
+                            <a class="navUser-childAction" href="{{lang 'header.custom_links.link_15.url'}}">{{lang 'header.custom_links.link_15.title'}}</a>
+                        </li>
+                    {{/if}}
+                </ul>
+            </li>
+        {{/if}}
+
+        {{#if theme_settings.social_icon_placement_top}}
+            <li class="navUser-item navUser-item--social">
+                {{> components/common/social-links}}
+            </li>
+        {{/if}}
+    </ul>
+</nav>

@@ -1,0 +1,103 @@
+.emthemesModez-productsVerticalCategoriesAside-outer {
+	margin-bottom: spacing("single") * 4;
+}
+
+.emthemesModez-productsVerticalCategoriesAside {
+    @include grid-row($behavior: "nest");
+    font-size: 0; // 1
+
+
+    .product {
+        @include grid-column(6, $float: none);
+        display: inline-block;
+        font-size: fontSize("base"); // 1
+        vertical-align: top;
+
+        @include breakpoint("small") {
+            width: grid-calc(4, $total-columns);
+        }
+
+        @include breakpoint("medium") {
+            width: grid-calc(3, $total-columns);
+        }
+    }
+}
+
+
+.emthemesModez-productsVerticalCategoriesAside-side,
+.emthemesModez-productsVerticalCategoriesAside-main {
+	@include grid-column(6, $float: none);
+	display: inline-block;
+    font-size: fontSize("base"); // 1
+    vertical-align: top;
+}
+
+.emthemesModez-productsVerticalCategoriesAside-side {
+	@include breakpoint("small") {
+        width: grid-calc(3, $total-columns);
+    }
+
+    @include breakpoint("medium") {
+        width: grid-calc(2, $total-columns);
+    }
+}
+
+.emthemesModez-productsVerticalCategoriesAside-main {
+	@include breakpoint("small") {
+	    width: grid-calc(9, $total-columns);
+	}
+
+	@include breakpoint("medium") {
+	    width: grid-calc(10, $total-columns);
+	}
+}
+
+//
+// STYLE 1
+
+.emthemesModez-productsVerticalCategoriesAside-outer--1 {
+
+	padding: (spacing("single") * 4) $container-padding;
+	margin-left: (-$container-padding);
+	margin-right: (-$container-padding);
+	background: url("../img/categories-featured-bg.jpg") no-repeat;
+	background-size: cover;
+
+	@include breakpoint("large") {
+		$i: ($emthemesModez-body-max-large - remCalc(1122px))/2;
+		margin-left: -$i;
+		margin-right: -$i;
+		padding-left: $i;
+		padding-right: $i;
+
+		.layout-fluid & {
+			$i: $container-padding * 4;
+			margin-left: -$i;
+			margin-right: -$i;
+			padding-left: $i;
+			padding-right: $i;			
+		}
+	}
+
+	@include breakpoint("xxlarge") {
+		$i: ($emthemesModez-body-max-xxlarge - remCalc(1122px))/2;
+		margin-left: -$i;
+		margin-right: -$i;
+		padding-left: $i;
+		padding-right: $i;
+
+		.layout-fluid & {
+			$i: $container-padding * 4;
+			margin-left: -$i;
+			margin-right: -$i;
+			padding-left: $i;
+			padding-right: $i;			
+		}
+	}
+
+	.productCarousel {
+		margin-bottom: 0;
+	}
+}
+
+

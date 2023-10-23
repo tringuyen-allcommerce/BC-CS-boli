@@ -1,0 +1,57 @@
+.emthemesModez-imageCarousel {
+	margin-bottom: spacing("single") * 4;
+	
+	@include breakpoint("small") {
+		width: 100vw;
+		margin-left: 50%;
+		transform: translateX(-50%);
+
+		.slick-slide {
+			transition: all 0.2s ease;
+		}
+
+
+		.slick-list .slick-active {
+			transform: translateX(-12.5vw);
+			z-index: 1;
+			position: relative;
+
+			+ .slick-slide {
+				transform: translateX(-25vw) scale(0.9);
+				transform-origin: left top;
+				z-index: 0;
+				position: relative;
+				filter: brightness(40%);
+			}
+		}
+
+		.slick-dots {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 25%;
+
+			li button,
+			li button:before {
+				width: 0.5rem;
+				height: 0.5rem;
+				border: 0;
+			}
+
+			li.slick-active button,
+			li.slick-active button:before {
+				width: 1rem;
+				height: 1rem;
+			}
+
+			li button:before {
+				background-color: $color-textSecondary;
+			}
+
+			li.slick-active button:before {
+				background-color: $color-textSecondary;
+				
+			}
+		}
+	}
+}

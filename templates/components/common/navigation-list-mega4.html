@@ -1,0 +1,84 @@
+<div class="navPage-subMenu navPage-subMenu--mega2" id="navPages-{{#if type '===' 'category'}}{{id}}{{else}}page-{{@index}}{{/if}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list">
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+        </li>
+        {{#each children}}
+            <li class="navPage-subMenu-item">
+                {{#if children}}
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="{{url}}"
+                        data-collapsible="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed">
+                        {{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                        {{> components/emthemes-modez/common/navigation-label}}
+                    </a>
+                    <ul class="navPage-childList" id="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}">
+                        {{#each children}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+    <div class="navPage-subMenu-banner-list">
+        <div class="navPage-subMenu-banner-item"><a href="https://bolioptics.com/magnifiers/esd-safe/"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/megamenu-magnifier3-web.jpg" alt="ESD Magnifier"></a></div>
+        <div class="navPage-subMenu-banner-item"><a href="https://bolioptics.com/vertical-post-height-600mm-stand-base-mg16310101/"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/megamenu-magnifierstand-web.jpg" alt="Magnifier Stand"></a></div>
+    </div>
+</div>
+
+
+
+
+<!--
+<div class="navPage-subMenu navPage-subMenu--mega4" id="navPages-{{#if type '===' 'category'}}{{id}}{{else}}page-{{@index}}{{/if}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list">
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+        </li>
+
+        {{#each children}}
+            <li class="navPage-subMenu-item">
+                {{#if children}}
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="{{url}}"
+                        data-collapsible="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed">
+                        {{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                        {{> components/emthemes-modez/common/navigation-label}}
+                    </a>
+                    <ul class="navPage-childList" id="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}">
+                        {{#each children}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                {{/if}}
+            </li>
+        {{/each}}
+        <li class="navPage-subMenu-banner">
+            <a href="https://bolioptics.com/blog/how-to-choose-a-microscope/"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/long-banner.jpg" alt="Parallax Bag"></a>
+        </li>
+    </ul>
+    <div class="navPage-subMenu-staticContent">
+        <p><a href="https://bolioptics.com/blog/how-to-choose-a-microscope/"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/blogphoto1.jpg" alt="Parallax Bag"></a></p>
+        <p class="navPage-subMenu-staticContent-heading">How to find the perfect microscope for you</p>
+        <p class="navPage-subMenu-staticContent-content">Whether you are a student, hobbyist, or professional, this guide will help you find the right microscope for your needs. </p>
+        <p><a class="button" href="https://bolioptics.com/blog/how-to-choose-a-microscope/">Read More</a></p>
+    </div>
+</div>
+-->

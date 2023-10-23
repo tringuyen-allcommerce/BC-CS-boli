@@ -1,0 +1,30 @@
+<div class="body">
+    {{#block "hero"}} {{/block}}
+
+    <!-- Bolioptics -->
+    <div class="google-translate-container" id="google_translate_container_mobile"></div>
+
+    <div class="container">
+        {{#block "page"}} {{/block}}
+    </div>
+    {{> components/common/modal}}
+    {{> components/common/modal-fullscreen}}
+    
+    <link rel="stylesheet" type="text/css" href="https://widget.reviews.io/floating-widget/css/dist.css">
+<script src="https://widget.reviews.io/rich-snippet-reviews-widgets/dist.js" type="text/javascript"></script>
+
+<script>
+    window.onload = function() {
+        richSnippetReviewsWidgets({
+            store: "boli-optics",
+            primaryClr: "#f7c41e",
+            widgetName: "floating-widget",
+            numReviews: 40,
+            floatPosition: "right",
+            contentMode: "company",
+            hideDates: true
+        });
+    };
+</script>
+
+</div>

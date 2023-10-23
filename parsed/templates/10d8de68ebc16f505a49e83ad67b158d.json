@@ -1,0 +1,3 @@
+{
+  "components/emthemes-modez/common/product-loading": "<div class=\"emthemesModez-productLoading emthemesModez-productLoading--maxCol2\">\n\t<div class=\"emthemesModez-productLoading-item\"><img src=\"{{cdn theme_settings.image_product_loading}}\" alt=\"loading\" title=\"loading\" /></div>\n\t<div class=\"emthemesModez-productLoading-item\"><img src=\"{{cdn theme_settings.image_product_loading}}\" alt=\"loading\" title=\"loading\" /></div>\n\t<div class=\"emthemesModez-productLoading-item\"><img src=\"{{cdn theme_settings.image_product_loading}}\" alt=\"loading\" title=\"loading\" /></div>\n\t<div class=\"emthemesModez-productLoading-item\"><img src=\"{{cdn theme_settings.image_product_loading}}\" alt=\"loading\" title=\"loading\" /></div>\n</div>\n"
+}

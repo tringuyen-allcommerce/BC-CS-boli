@@ -1,0 +1,9 @@
+{{#each cart.status_messages}}
+    {{> components/common/alert-info message}}
+{{/each}}
+
+{{#if cart.items.length}}
+    {{#if cart.grand_total.value '<' theme_settings.min_order}}
+         {{> components/common/alert-error (lang 'parallaxbag.min_order_msg' min=theme_settings.min_order)}}
+    {{/if}}
+{{/if}}

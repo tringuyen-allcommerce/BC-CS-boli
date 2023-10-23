@@ -1,0 +1,9 @@
+.card-figcaption-body-bottomGroup {
+	align-items: stretch;
+	padding: 0;
+}
+
+.card-figcaption-button.quickview {
+	@include buttonVariant('primary');
+}
+

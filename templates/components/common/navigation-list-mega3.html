@@ -1,0 +1,37 @@
+<div class="navPage-subMenu navPage-subMenu--mega3" id="navPages-{{#if type '===' 'category'}}{{id}}{{else}}page-{{@index}}{{/if}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list">
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+        </li>
+
+        {{#each children}}
+            <li class="navPage-subMenu-item">
+                {{#if children}}
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="{{url}}"
+                        data-collapsible="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed">
+                        {{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                        {{> components/emthemes-modez/common/navigation-label}}
+                    </a>
+                    <ul class="navPage-childList" id="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}">
+                        {{#each children}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+    <div class="navPage-subMenu-banner-list">
+        <div class="navPage-subMenu-banner-item"><a href="https://bolioptics.com/microscope-parts-accessories/illuminator/"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/megamenu-illuminators.gif" width="230" height="346" alt="Microscope Illuminators"></a></div>
+        <div class="navPage-subMenu-banner-item"><a href="https://bolioptics.com/microscope-parts-accessories/objective/"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/megamenu-objectives-web.gif" width="230" height="346" alt="Microscope Objectives"></a></div>
+    </div>
+</div>

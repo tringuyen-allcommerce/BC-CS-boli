@@ -1,0 +1,151 @@
+{{#if banners.bottom}}
+<div class="banners" data-banner-location="bottom">
+    {{#each banners.bottom}}
+        {{#if (occurrences this 'emthemesModezBannersBlock') '===' 0}}
+            <div class="banner">
+                {{{this}}}
+            </div>
+        {{/if}}
+    {{/each}}
+</div>
+{{/if}}
+
+{{#if banners.bottom}}
+    {{#each banners.bottom}}
+        {{#if (occurrences this 'emthemesModezBannersBlockFullscreenBanner') '>' 0}}
+            {{{this}}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+
+<footer class="footer" role="contentinfo">
+
+    {{!> components/emthemes-modez/newsletter/section}}
+
+    <div class="container">
+
+        {{> components/papa-parallaxbag/sections/section-footer-three-banners}}
+
+        <section class="footer-info">
+
+            <article class="footer-info-col" data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">{{lang 'footer.links.col1_heading'}}</h5>
+                <ul class="footer-info-list">
+                    {{#if (lang 'footer.links.col1_url1') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url1'}}">{{lang 'footer.links.col1_title1'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col1_url2') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url2'}}">{{lang 'footer.links.col1_title2'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col1_url3') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url3'}}">{{lang 'footer.links.col1_title3'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col1_url4') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url4'}}">{{lang 'footer.links.col1_title4'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col1_url5') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url5'}}">{{lang 'footer.links.col1_title5'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col1_url6') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url6'}}">{{lang 'footer.links.col1_title6'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col1_url7') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url7'}}">{{lang 'footer.links.col1_title7'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col1_url8') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url8'}}">{{lang 'footer.links.col1_title8'}}</a></li>
+                    {{/if}}
+                </ul>
+            </article>
+
+            <article class="footer-info-col" data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">{{lang 'footer.links.col2_heading'}}</h5>
+                <ul class="footer-info-list">
+                    {{#if (lang 'footer.links.col2_url1') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url1'}}">{{lang 'footer.links.col2_title1'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col2_url2') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url2'}}">{{lang 'footer.links.col2_title2'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col2_url3') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url3'}}">{{lang 'footer.links.col2_title3'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col2_url4') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url4'}}">{{lang 'footer.links.col2_title4'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col2_url5') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url5'}}">{{lang 'footer.links.col2_title5'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col2_url6') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url6'}}">{{lang 'footer.links.col2_title6'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col2_url7') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url7'}}">{{lang 'footer.links.col2_title7'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col2_url8') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url8'}}">{{lang 'footer.links.col2_title8'}}</a></li>
+                    {{/if}}
+                </ul>
+            </article>
+
+
+            <article class="footer-info-col footer-info-col--about" data-section-type="footer-about">
+                <h5 class="footer-info-heading">{{lang 'footer.about'}}</h5>
+                {{{lang 'footer.about_text'}}}
+            </article>
+            
+
+            <article class="footer-info-col" data-section-type="storeInfo">
+                <h5 class="footer-info-heading">{{lang 'footer.info'}}</h5>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa-lg sl-icon-location-pin"></i><address>{{nl2br settings.address}}</address></li>
+                    {{#if settings.phone_number}}
+                    <li><i class="fa-li fa-lg sl-icon-phone"></i>{{lang 'footer.call_us' phone_number=settings.phone_number}}</li>
+                    {{/if}}
+                    <li><i class="fa-li fa-lg sl-icon-envelope"></i>{{lang 'footer.email'}}</li>
+                </ul>
+
+                {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+                    <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
+                    {{> components/common/social-links}}
+                {{/if}}
+            </article>
+
+
+            {{#if theme_settings.shop_by_brand_show_footer}}
+                {{> components/emthemes-modez/brand/carousel}}
+            {{/if}}
+
+        </section>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+
+            <article class="powered-by">
+                {{#if theme_settings.show_copyright_footer}}
+                    &copy; <span id="copyright_year"></span> {{settings.store_name}}.
+                    <script type="text/javascript">
+                        document.getElementById("copyright_year").innerHTML = new Date().getFullYear();
+                    </script>
+                {{/if}}
+
+                {{#if theme_settings.show_powered_by}}
+                    Powered by <a href="http://bigcommerce.com" rel="nofollow">BigCommerce</a>.<br/>
+                    Theme by <a href="https://papathemes.com" rel="nofollow">papathemes</a>.
+                {{/if}}
+                
+            </article>
+
+            {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+                {{> components/common/payment-icons}}
+            {{/if}}
+    
+            {{#if theme_settings.show_geotrust_ssl_seal}}
+                <article class="footer-geotrust-ssl-seal">
+                    {{> components/common/geotrust-ssl-seal}}
+                </article>
+            {{/if}}
+        </div>
+    </div>
+</footer>

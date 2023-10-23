@@ -1,0 +1,44 @@
+// ============================================================================
+// Styling for custom template product/fluid-lightbox.html
+// ============================================================================
+
+.template-pages-custom-product-fluid-lightbox,
+.template-pages-custom-product-herecomestheinvite {
+	.body {
+		max-width: none;
+
+		.container {
+			max-width: none;
+		}
+	}
+
+	.productView-image {
+		display: block;
+		min-width: auto;
+		min-height: auto;
+		margin-top: spacing("single");
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.productView-options {
+		@include breakpoint("small") {
+			margin-top: spacing("single");
+		}
+	}
+
+	.productView-description {
+		float: none;
+		width: 100%;
+		padding: 0;
+	}
+
+	.productView-brand {
+		margin-top: spacing("half");
+		
+		@include breakpoint("large") {
+			margin-top: spacing("base");
+		}
+	}
+}

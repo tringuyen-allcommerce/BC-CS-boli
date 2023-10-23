@@ -1,0 +1,42 @@
+.emthemesModez-section--parallaxbag-freeShippingReturn {
+	// background: url(../img/free-shipping-return-bg.jpg); // PapaThemes - Boli
+	width: 100vw;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: spacing("single") * 4;
+
+	.layout-boxed-1280 & {
+		width: auto;
+		margin-left: auto;
+		transform: none;
+	}
+
+	// when displayed just under the main carousel
+	&:first-child {
+		margin-top: -(spacing("single") * 3);
+	}
+}
+
+.parallaxbag-freeShippingReturnSection {
+
+	&,
+	&.container {
+		padding-top: spacing("single") * 3;
+		padding-bottom: spacing("single") * 3;
+	}
+
+	.page-heading {
+		font-family: stencilFontFamily("altHeadings-font");
+		font-size: fontSize("largest") * 48/28;
+		margin-bottom: spacing("single");
+
+		em {
+			text-transform: lowercase;
+		}
+	}
+
+	.description {
+		text-align: center;
+		color: $color-textSecondary;
+	}
+}

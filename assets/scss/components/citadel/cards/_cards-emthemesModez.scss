@@ -1,0 +1,238 @@
+.card-figure {
+  a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .compareTable-removeProduct {
+    position: absolute;
+  }
+}
+
+.card-image ~ .card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.card:hover,
+.card:focus,
+.card:active {
+  .card-image ~ .card-image {
+    opacity: 1;
+  }
+}
+
+.card-body {
+  padding-top: spacing("single");
+
+    @include breakpoint("small") {
+        text-align: left;
+
+        @include clearfix;
+    }
+
+    .price {
+      color: stencilColor("color-textBase");
+    }
+}
+
+.card-title {
+  margin-bottom: spacing("half");
+  font-weight: fontWeight("normal");
+  letter-spacing: 0;
+}
+
+.card-text {
+  margin-bottom: spacing("half");
+}
+
+.card-text--colors {
+  font-size: 0;
+
+  @include breakpoint("small") {
+    line-height: fontSize("base") * lineHeight("base");
+  }
+}
+
+.emthemesModez-card-color-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: spacing("quarter");
+  vertical-align: middle;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.card-text--price {
+
+}
+
+.card-text--brand {
+  text-transform: uppercase;
+  font-size: fontSize("smaller");
+}
+
+
+.card-figcaption-body {
+  display: inline;
+  transform: none;
+  position: static;
+}
+
+.card-figcaption-button {
+  font-size: fontSize("small");
+}
+
+.card-figcaption-body-bottomGroup {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: stencilColor("card-figcaption-button-background");
+  padding: spacing("half") 0;
+
+  .card-figcaption-button {
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:hover {
+      background: stencilColor("card-figcaption-button-background");
+      opacity: 0.6;
+    }
+  }
+}
+
+.card-figcaption-body-rightGroup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .card-figcaption-button {
+    padding: 0;
+    text-align: center;
+    font-size: 0;
+    line-height: 0;
+    border: 0;
+    background-color: transparent;
+    margin-right: spacing("half");
+    margin-top: spacing("half");
+
+    &:hover,
+    &:focus {
+      .card-figcaption-button-icon {
+        opacity: 0.6;
+      }
+    }
+
+    input {
+      visibility: hidden;
+      clip: rect(0, 0, 0, 0);
+      width: 0;
+      height: 0;
+    }
+  }
+  .card-figcaption-button-text {
+    display: none;
+  }
+
+  .card-figcaption-button-icon {
+    font-size: fontSize("larger");
+  }
+
+  /*.card-figcaption-button {
+    text-indent: -9999px;
+    font-size: 0;
+    padding: 5px;
+    line-height: fontSize("large");
+    border: 0;
+    background: transparent;
+  
+    &:before {
+      font-family: 'emthemesmodezicons' !important;
+      font-style: normal;
+      content: $emthemesModez-icon-linear-cart;
+      text-indent: 0;
+      float: left;
+      font-size: fontSize("large");
+    }
+
+    &:hover {
+      background: transparent;
+      opacity: 0.6;
+    }
+  }
+
+  .card-figcaption-button--compare:before {
+    content: $emthemesModez-icon-compare_arrows;
+  }
+
+  .card-figcaption-button--wishlist:before {
+    content: $emthemesModez-icon-heart;
+  }*/
+
+}
+
+
+
+.card-figcaption-button.quickview {
+
+}
+
+.card-figcaption-button--addtocart {
+  padding: 0.5rem 0.78571rem;
+  padding: spacing("third") spacing("half");
+  background-color: #f7e2a9;
+  border-color: #f7e2a9;
+  color: black;
+  &:hover {
+    background-color: darken($color: #f7e2a9, $amount: 15%);
+    border-color: darken($color: #f7e2a9, $amount: 15%);
+    color: black;
+  }
+}
+
+// Variation laparis4 showing on Home 04
+// ----------------------------------------------------------------------------
+// 
+// - On desktop: Hide card body, show when hover
+// 
+// ----------------------------------------------------------------------------
+
+.card--laparis4 {
+  .productCarousel-slide &.card {
+    margin-bottom: spacing("half");
+  }
+
+  .card-body {
+    @include breakpoint("medium") {
+      visibility: hidden;
+      background-color: container("fill");
+      padding: spacing("half") spacing("base");
+    }
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 2px 5px rgba(color("blacks"), 0.15);
+
+    .card-body {
+      @include breakpoint("medium") {
+        visibility: visible;
+      }
+    }
+  }
+}

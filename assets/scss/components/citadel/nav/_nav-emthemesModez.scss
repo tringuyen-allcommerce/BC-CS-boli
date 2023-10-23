@@ -1,0 +1,23 @@
+.navList-section,
+.navList-subSection {
+	list-style: none;
+	margin: 0;
+}
+
+.navList-subSection .navList-item {
+	margin-left: spacing("single");
+
+	&:before {
+		content: '-';
+		float: left;
+		margin-left: -(spacing("single"));
+		padding: spacing("quarter") 0;
+	}
+}
+
+
+.navList-action {
+	padding-top: spacing("quarter");
+	padding-bottom: spacing("quarter");
+	font-size: fontSize("base");
+}

@@ -1,0 +1,3 @@
+{
+  "components/papa-parallaxbag/sections/section-promotion-video": "<div class=\"emthemesModez-section emthemesModez-section--parallaxbag-video\" {{#if theme_settings.enable_parallax}}data-parallax=\"scroll\" data-image-src=\"{{lang 'parallaxbag.video.bg_img'}}\"{{else}}style=\"background-image:url({{lang 'parallaxbag.video.bg_img'}})\"{{/if}}>\n\t<div class=\"parallaxbag-videoSection container\">\n\t\t<h2 class=\"page-heading\">{{lang 'parallaxbag.video.heading'}}</h2>\n\t\t<h3 class=\"page-subheading\">{{lang 'parallaxbag.video.subheading'}}</h3>\n\t\t<div class=\"parallaxbag-videoSection-video\">{{{lang 'parallaxbag.video.html'}}}</div>\n\t</div>\n</div>\n"
+}

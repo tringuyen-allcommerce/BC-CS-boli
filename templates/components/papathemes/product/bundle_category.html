@@ -1,0 +1,7 @@
+{{#if category.products}}
+    {{#each category.products}}
+        {{> components/papathemes/product/bundle_product product=this theme_settings=../theme_settings customer=../customer}}
+    {{/each}}
+{{else}}
+    <p>{{lang 'categories.no_products'}}</p>
+{{/if}}

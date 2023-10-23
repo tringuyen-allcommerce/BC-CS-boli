@@ -1,0 +1,17 @@
+<div class="navPage-subMenu navPage-subMenu--mega3" id="navPages-{{#if type '===' 'category'}}{{id}}{{else}}page-{{@index}}{{/if}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list" style="height:346px">
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+        </li>
+
+        {{#each children}}
+            <li class="navPage-subMenu-item">
+                <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+            </li>
+        {{/each}}
+    </ul>
+    <div class="navPage-subMenu-banner-list">
+        <div class="navPage-subMenu-banner-item"><a href="https://bolioptics.com/microscope-parts-accessories/illuminator/"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/megamenu-illuminators.gif" width="230" height="346" alt="Microscope Illuminators"></a></div>
+        <div class="navPage-subMenu-banner-item"><a href="https://bolioptics.com/microscope-parts-accessories/objective/"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/megamenu-objectives-web.gif" width="230" height="346" alt="Microscope Objectives"></a></div>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+{
+  "components/emthemes-modez/search/quick-search-dropdown": "<div class=\"dropdown dropdown--quickSearch visibleQuickSearch-results-wrapper\" id=\"quickSearch\" aria-hidden=\"true\" tabindex=\"-1\"\n    data-prevent-quick-search-close>\n    <section class=\"quickSearchResults visibleQuickSearch-results\" data-bind=\"html: results\"></section>\n</div>\n"
+}

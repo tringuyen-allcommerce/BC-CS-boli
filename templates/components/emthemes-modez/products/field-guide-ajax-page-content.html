@@ -1,0 +1,23 @@
+<div class="modal-body emthemesModez-ajaxPage">
+
+    <h1 class="page-heading">{{ page.title }}</h1>
+
+    <div class="page-content jam" oncopy="return false" oncut="return false" onpaste="return false">
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            <p>{{{page.content}}}</p>
+        {{/replace}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+</div>

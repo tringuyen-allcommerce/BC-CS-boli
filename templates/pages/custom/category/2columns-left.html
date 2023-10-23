@@ -1,0 +1,53 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#if category.image}}
+    <p class="emthemesModez-category-image {{#if theme_settings.hide_category_image}}hide{{/if}}"><img src="{{getImage category.image 'zoom_size'}}"></p>
+{{/if}}
+<h1 class="page-heading page-heading--category {{#if theme_settings.hide_category_heading}}hide{{/if}}">{{category.name}}</h1>
+<div class="page">
+    {{#if category.faceted_search_enabled '==' false}}
+    <aside class="page-sidebar" id="faceted-search-container">
+        {{> components/category/sidebar}}
+    </aside>
+    {{/if}}
+
+    <main class="page-content" id="product-listing-container">
+        {{#if category.subcategories}}
+            {{> components/emthemes-modez/sections/section-categories-grid categories=category.subcategories description=category.description}}
+        {{else}}
+            {{#if category.description}}
+                <div class="emthemesModez-category-description">{{{category.description}}}</div>
+            {{/if}}
+        {{/if}}
+
+        {{{snippet 'categories'}}}
+
+        {{#if category.products}}
+            {{> components/category/product-listing}}
+        {{else}}
+            {{#unless category.subcategories}}
+                <p>{{lang 'categories.no_products'}}</p>
+            {{/unless}}
+        {{/if}}
+    </main>
+</div>
+
+{{/partial}}
+{{> layout/base}}

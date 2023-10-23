@@ -1,0 +1,6 @@
+.disableCheckout {
+    ~ .cart-actions,
+    ~ .cart-additionalCheckoutButtons {
+        @include u-hidden("visually");
+    }
+}

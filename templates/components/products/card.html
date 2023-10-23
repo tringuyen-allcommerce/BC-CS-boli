@@ -1,0 +1,125 @@
+<article class="card {{#if alternate}}card--alternate{{/if}} {{#if style}}card--{{style}}{{/if}}">
+    <figure class="card-figure">
+        {{#if theme_settings.group_hide_sale_badges}}
+            {{#inArray (split theme_settings.group_hide_sale_badges ',') customer.customer_group_name}}{{! Don't show sale badge }}{{else}}
+                {{> components/products/card-sale-badge}}
+            {{/inArray}}
+        {{else}}
+            {{> components/products/card-sale-badge}}
+        {{/if}}
+        {{#if theme_settings.show_product_card_custom_label}}
+            {{#each custom_fields}}
+                {{#if name '==' 'card_label'}}
+                    <div class="sale-flag-side sale-flag-side--custom">
+                        <span class="sale-text">{{value}}</span>
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+        <a href="{{url}}">
+            <img class="card-image" src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+            {{#if theme_settings.show_product_image_alt}}
+                {{#each (limit images 2)}}
+                    {{#if @index '>' 0}}
+                        <img class="card-image" src="{{getImage this 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        </a>
+        <figcaption class="card-figcaption">
+            <div class="card-figcaption-body">
+                <div class="card-figcaption-body-bottomGroup">
+                    {{#unless hide_product_quick_view}}
+                        {{#if theme_settings.show_product_quick_view}}
+                            <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
+                        {{/if}}
+                    {{/unless}}
+                </div>
+                <div class="card-figcaption-body-rightGroup">
+                    {{#if show_compare}}
+                        <label class="button card-figcaption-button card-figcaption-button--compare" for="compare-{{id}}" data-tooltip="{{lang 'products.compare'}}">
+                            <span class="card-figcaption-button-icon emthemesModez-icon-compare_arrows"></span><span class="card-figcaption-button-text">{{lang 'products.compare'}}</span> <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
+                        </label>
+                    {{/if}}
+                    {{#if show_wishlist}}
+                        <form class="form" method="post" action="{{add_to_wishlist_url}}" data-wishlist-add>
+                            <div class="form-action">
+                                <input type="hidden" name="variation_id" value="">
+                                <button class="button card-figcaption-button card-figcaption-button--wishlist" type="submit" data-tooltip="{{lang 'account.wishlists.add_item'}}"><span class="card-figcaption-button-icon emthemesModez-icon-heart"></span><span class="card-figcaption-button-text">{{lang 'account.wishlists.add_item'}}</span></button>
+                            </div>
+                        </form>
+                    {{/if}}
+                </div>
+            </div>
+        </figcaption>
+    </figure>
+    <div class="card-body">
+        <div class="sku-container">
+            <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
+            <a href="{{url}}"><dd class="productView-info-value" data-product-sku>{{sku}}</dd></a>
+        </div>
+        <h4 class="card-title">
+            <a href="{{url}}">{{name}}</a>
+        </h4>
+        {{#if theme_settings.show_product_card_brand}}
+            {{#if brand.name}}
+                <p class="card-text card-text--brand" data-test-info-type="brandName">{{brand.name}}</p>
+            {{/if}}
+        {{/if}}
+        <!-- Bolioptics -->
+        <div class="card-body-container">
+            <div class="card-body-left">
+                <div class="availability-container">
+                    <span class="productView-info-name">{{lang 'products.availability'}}</span>
+                    <span class="productView-info-value" data-product-availability data-product-id="{{id}}">
+                        {{> components/products/availability}}
+                    </span>
+                </div>
+                {{#unless theme_settings.hide_product_card_price}}
+                    <div class="card-text card-text--price" data-test-info-type="price">
+                        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                            {{> components/products/price price=price customer=customer}}
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
+                    </div>
+                {{/unless}}
+            </div>
+            <div class="card-body-right">
+                {{#if theme_settings.show_product_card_buy_button}}
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{#if show_cart_action}}
+                            {{#if has_options}}
+                                <a href="{{url}}" class="button card-figcaption-button card-figcaption-button--addtocart" data-product-id="{{id}}"><span class="card-figcaption-button-text">{{lang 'products.choose_options'}}</span></a>
+                            {{else if pre_order}}
+                                <a href="{{url}}" class="button card-figcaption-button card-figcaption-button--addtocart"><span class="card-figcaption-button-text">{{lang 'products.pre_order'}}</span></a>
+                            {{else if add_to_cart_url }}
+                                <a href="{{add_to_cart_url}}" class="button card-figcaption-button card-figcaption-button--addtocart"><span class="card-figcaption-button-text">{{lang 'products.add_to_cart'}}</span></a>
+                            {{else if out_of_stock_message }}
+                                <a href="{{url}}" class="button card-figcaption-button card-figcaption-button--addtocart" data-product-id="{{id}}"><span class="card-figcaption-button-text">{{out_of_stock_message}}</span></a>
+                            {{/if}}
+                        {{/if}}
+                    {{/or}}
+                {{/if}}
+            </div>
+        </div>
+        {{#if show_rating}}
+            {{#if num_reviews '>' 0}}
+                <p class="card-text card-text--rating" data-test-info-type="productRating">
+                    <span class="rating--small">
+                        {{> components/products/ratings rating=rating}}
+                    </span>
+                </p>
+            {{/if}}
+        {{/if}}
+        {{#if theme_settings.show_product_card_color}}
+            {{#each custom_fields}}
+                {{#if name '==' 'card_color'}}
+                    <div class="card-text card-text--colors" data-emthemesmodez-card-colors="{{value}}">
+                        {{value}}
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    </div>
+</article>

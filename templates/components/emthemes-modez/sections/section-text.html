@@ -1,0 +1,16 @@
+<section class="emthemesModez-textBlock">
+	
+	{{#if heading}}{{#if heading '!=' ' '}}
+	<h2 class="emthemesModez-textBlock-heading">{{{heading}}}</h2>
+	{{/if}}{{/if}}
+
+	{{#if content}}{{#if content '!=' ' '}}
+	<div class="emthemesModez-textBlock-content">{{{content}}}</div>
+	{{/if}}{{/if}}
+
+	{{#if button}}{{#if button '!=' ' '}}
+	<div class="emthemesModez-textBlock-buttons">
+		<a class="button button--primary" href="{{link}}">{{{button}}}</a>
+	</div>
+	{{/if}}{{/if}}
+</section>

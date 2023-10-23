@@ -1,0 +1,45 @@
+.emthemesModez-section--parallaxbag-footerThreeBanners {
+	padding: spacing("double") + spacing("half") 0;
+	border-bottom: 1px solid $footer-borderColor;
+
+	.emthemesModez-bannersContainer {
+		margin-bottom: 0;
+	}
+}
+
+.emthemesModez-banner--parallaxbag-footerThreeBanners {
+
+	@include breakpoint("small") {
+		width: width("4/12");
+	}
+
+	.emthemesModez-banner-figure {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0;
+
+		> a {
+			margin: 0 $column-gutter 0 0;
+		}
+	}
+
+	.emthemesModez-banner-figcaption {
+		margin: 0 auto 0 0;
+	}
+
+	.emthemesModez-banner-figcaption-body {
+		text-align: left;
+	}
+
+	.emthemesModez-banner-figcaption-title {
+		font-family: stencilFontFamily("headings-font");
+		font-size: fontSize("larger");
+		margin-bottom: spacing("half");
+		text-transform: uppercase;
+	}
+
+	.emthemesModez-banner-figcaption-text {
+		margin: 0;
+		text-transform: uppercase;
+	}
+}

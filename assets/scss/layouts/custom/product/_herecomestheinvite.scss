@@ -1,0 +1,40 @@
+
+.productView-description--herecomestheinvite {
+	margin-top: spacing("single");
+	
+	.tabs-contents {
+		margin-bottom: 0;
+	}
+}
+
+.button--herecomestheinvite-examples {
+	position: absolute;
+	right: spacing("base");
+	padding: spacing("eighth") spacing("quarter");
+	border: 0;
+	background-color: color("greys", "lighter");
+	color: color("blacks");
+}
+
+.template-pages-custom-product-herecomestheinvite {
+	.productView-options {
+		text-align: left;
+	}
+
+	.productView-images {
+		@include breakpoint("medium") {
+			width: 60%;
+		}
+	}
+	.productView-details {
+		@include breakpoint("medium") {
+			width: 40%;
+		}
+	}
+
+}
+
+.herecomestheinvite-productView-textblock {
+	margin-bottom: spacing("double");
+}
+

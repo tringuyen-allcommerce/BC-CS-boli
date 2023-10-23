@@ -1,0 +1,38 @@
+<div class="emthemesModez-section emthemesModez-section--parallaxbag-whatSpecial">
+	<div class="parallabag-whatSpecialSection">
+		{{#if (lang 'parallaxbag.what_special.heading') '!=' ' '}}
+			<h2 class="page-heading">{{lang "parallaxbag.what_special.heading"}}</h2>
+		{{/if}}
+		{{#if (lang 'parallaxbag.what_special.subheading') '!=' ' '}}
+			<h3 class="page-subheading">{{lang "parallaxbag.what_special.subheading"}}</h3>
+		{{/if}}
+		<div class="emthemesModez-bannersContainer">
+			{{> components/emthemes-modez/banners/banner
+				url=(lang "parallaxbag.what_special.banner_1.url")
+				image=(lang "parallaxbag.what_special.banner_1.image")
+				title=(lang "parallaxbag.what_special.banner_1.title")
+				button=(lang "parallaxbag.what_special.banner_1.button")
+				text=(lang "parallaxbag.what_special.banner_1.text")
+				style="parallaxbag-whatSpecial"
+			}}
+
+			{{> components/emthemes-modez/banners/banner
+				url=(lang "parallaxbag.what_special.banner_2.url")
+				image=(lang "parallaxbag.what_special.banner_2.image")
+				title=(lang "parallaxbag.what_special.banner_2.title")
+				button=(lang "parallaxbag.what_special.banner_2.button")
+				text=(lang "parallaxbag.what_special.banner_2.text")
+				style="parallaxbag-whatSpecial"
+			}}
+
+			{{> components/emthemes-modez/banners/banner
+				url=(lang "parallaxbag.what_special.banner_3.url")
+				image=(lang "parallaxbag.what_special.banner_3.image")
+				title=(lang "parallaxbag.what_special.banner_3.title")
+				button=(lang "parallaxbag.what_special.banner_3.button")
+				text=(lang "parallaxbag.what_special.banner_3.text")
+				style="parallaxbag-whatSpecial"
+			}}
+		</div>
+	</div>
+</div>

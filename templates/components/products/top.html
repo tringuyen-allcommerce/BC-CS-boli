@@ -1,0 +1,30 @@
+{{#unless hide_heading}}
+<h2 class="page-heading">{{lang 'products.top' }}</h2>
+{{/unless}}
+
+
+{{#if display_type '==' 'carousel'}}
+    {{> components/products/carousel products=products}}
+{{else if display_type '==' 'grid'}}
+    <ul class="productGrid productGrid--maxCol{{ columns }} {{#if style}}productGrid--{{style}}{{/if}}" data-product-type="top_sellers">
+        {{#each products}}
+            <li class="product">
+                {{>components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_compare=../show_compare show_wishlist=../show_wishlist}}
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <ul class="productList productList--maxCol{{ columns }} productList--block {{#if style}}productGrid--{{style}}{{/if}}" data-product-type="top_sellers">
+        {{#each products}}
+            <li class="product">
+                {{>components/products/list-item 
+                	show_rating=false
+                	summary=false
+                    show_compare=../show_compare
+                    show_wishlist=../show_wishlist
+                	show_rating=../settings.show_product_rating 
+                	theme_settings=../theme_settings customer=../customer}}
+            </li>
+        {{/each}}
+    </ul>	
+{{/if}}

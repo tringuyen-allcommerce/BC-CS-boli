@@ -1,0 +1,23 @@
+{{#if image}}
+{{#if image '!=' ' '}}
+<div class="emthemesModez-imageCarousel-slide">
+    <a href="{{url}}">
+        <img class="emthemesModez-imageCarousel-image" src="{{image}}" alt="{{image_alt}}" title="{{image_alt}}"/>
+
+        <div class="emthemesModez-imageCarousel-content">
+            {{#if heading '!=' ' '}}
+            <h3 class="emthemesModez-imageCarousel-title">{{heading}}</h3>
+            {{/if}}
+
+            {{#if text '!=' ' '}}
+            <p class="emthemesModez-imageCarousel-description">{{text}}</p>
+            {{/if}}
+
+            {{#if button '!=' ' '}}
+                <span class="emthemesModez-imageCarousel-action button button--primary button--large">{{button}}</span>
+            {{/if}}
+        </div>
+    </a>
+</div>
+{{/if}}
+{{/if}}

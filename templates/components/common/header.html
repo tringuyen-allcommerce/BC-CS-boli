@@ -1,0 +1,57 @@
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    {{#each banners.top}}
+        {{#if (occurrences this 'emthemesModezBannersBlock') '===' 0}}
+            <div class="banner">
+                {{{this}}}
+            </div>
+        {{/if}}
+    {{/each}}
+</div>
+{{/if}}
+<header class="header header--{{theme_settings.header-style}}" role="banner">
+    {{#if theme_settings.show_top_header}}
+    <div class="emthemesModez-header-topSection">
+        <div class="container">
+            <ul>
+                <li>
+                    {{{lang 'emthemesmodez.header.top.title_1'}}}
+                    {{{lang 'emthemesmodez.header.top.text_1_1'}}}
+                    {{{lang 'emthemesmodez.header.top.text_1_2'}}}
+                </li>
+                <li>
+                    {{{lang 'emthemesmodez.header.top.title_2'}}}
+                    {{{lang 'emthemesmodez.header.top.text_2_1'}}}
+                    {{{lang 'emthemesmodez.header.top.text_2_2'}}}
+                </li>
+                <li>
+                    {{{lang 'emthemesmodez.header.top.title_3'}}}
+                    {{{lang 'emthemesmodez.header.top.text_3_1'}}}
+                    {{{lang 'emthemesmodez.header.top.text_3_2'}}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{/if}}
+    <div class="emthemesModez-header-userSection emthemesModez-header-userSection--logo-{{theme_settings.logo-position}}">
+        <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+            <span class="mobileMenu-toggleIcon">Toggle menu</span>
+        </a>
+        {{#if template_file '===' 'pages/home'}}
+            <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </h1>
+        {{else}}
+            <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </div>
+        {{/if}}
+        {{> components/common/navigation-left}}
+        {{> components/common/navigation-right}}
+    </div>
+
+    <div class="navPages-container" id="menu" data-menu {{#if theme_settings.header_sticky}}data-stickymenu{{/if}}>
+        {{> components/common/navigation-menu}}
+    </div>
+    <div class="navPages-container-overlay"></div>
+</header>

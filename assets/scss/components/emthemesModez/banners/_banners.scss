@@ -1,0 +1,1016 @@
+// ============================================================================
+// Default Banners
+// ============================================================================
+
+.emthemesModez-bannersContainer {
+    @include grid-row($behavior: "nest");
+    font-size: 0; // 1
+    margin-bottom: spacing("single") * 4;
+}
+
+
+.emthemesModez-banner {
+	@include grid-column(12, $float: none);
+    display: inline-block;
+    font-size: fontSize("base"); // 1
+    vertical-align: top;
+
+    + .emthemesModez-banner {
+    	margin-top: spacing("double");
+
+    	@include breakpoint("small") {
+    		margin-top: 0;
+    	}
+    }
+}
+
+.emthemesModez-banner-figure {
+	margin: 0 0 spacing("single");
+
+	> a {
+		display: block;
+		overflow: hidden;
+	}
+}
+
+
+.emthemesModez-banner-image {
+	transition: all 0.1s ease;
+
+	a:hover &,
+	a:focus & {
+		filter: brightness(90%);
+		// transform: scale(1.05);
+	}
+}
+
+.emthemesModez-banner-figcaption {
+	color: inherit;
+}
+
+.emthemesModez-banner-figcaption-body {
+	text-align: center;
+}
+
+.emthemesModez-banner-figcaption-title {
+	font-family: stencilFontFamily("altBody-font");
+	font-size: fontSize("base") * 3;
+	font-weight: normal;
+	margin: 0 0 (spacing("single") + spacing("quarter"));
+	line-height: 1;
+}
+
+
+.emthemesModez-banner-figcaption-text {
+	color: $color-primary;
+	margin-bottom: spacing("single") + spacing("quarter");
+}
+
+.emthemesModez-banner-figcaption-button {
+	margin-bottom: 0;
+}
+
+
+
+
+
+// ============================================================================
+// Extends
+// ============================================================================
+
+%emthemesModez-bannersContainer--fullWidth {
+	@include breakpoint("small") {
+		width: 100vw;
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+%emthemesModez-banner--noPadding {
+	@include breakpoint("small") {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+
+
+
+
+// ============================================================================
+// Banner Variations
+// ============================================================================
+
+.emthemesModez-bannersContainer--onethird-x3 .emthemesModez-banner {
+	@include breakpoint("small") {
+        width: grid-calc(4, $total-columns);
+    }
+}
+
+.emthemesModez-bannersContainer--twothird-onethird {
+	
+	.emthemesModez-banner:nth-child(2n+1) {
+		@include breakpoint("small") {
+	        width: grid-calc(8, $total-columns);
+	    }
+	}
+
+	.emthemesModez-banner:nth-child(2n) {
+		@include breakpoint("small") {
+	        width: grid-calc(4, $total-columns);
+	    }
+	}
+}
+
+
+.emthemesModez-bannersContainer--half .emthemesModez-banner {
+	@include breakpoint("small") {
+        width: grid-calc(6, $total-columns);
+    }
+}
+
+
+//
+// Custom banner style for herecomestheinvite
+//
+.emthemesModez-bannersContainer--half-laparis6 {
+
+	@include breakpoint("small") {
+		width: 100vw;
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+
+	@include breakpoint("medium") {
+		display: flex;
+		align-items: top;
+	}
+
+	.emthemesModez-banner {
+		@include breakpoint("small") {
+			width: grid-calc(12, $total-columns);
+			display: flex;
+			align-items: center;
+
+			+ .emthemesModez-banner {
+				margin-top: spacing("double");
+			}
+
+			&--laparis6-right {
+				.emthemesModez-banner-figure {
+					order: 2;
+					margin-left: $column-gutter / 2;
+					margin-right: 0;
+				}
+
+				.emthemesModez-banner-figcaption {
+					order: 1;
+					margin-left: 0;
+					margin-right: $column-gutter / 2;
+				}
+			}
+
+			&--laparis6-left-right:nth-child(2n+1) {
+				.emthemesModez-banner-figure {
+					order: 2;
+					margin-left: $column-gutter / 2;
+					margin-right: 0;
+				}
+
+				.emthemesModez-banner-figcaption {
+					order: 1;
+					margin-left: 0;
+					margin-right: $column-gutter / 2;
+				}
+			}
+		}
+
+		@include breakpoint("medium") {
+			flex: 1;
+			width: grid-calc(6, $total-columns);
+
+			+ .emthemesModez-banner {
+				margin-top: 0;
+			}
+		}
+	}
+
+	// .emthemesModez-banner--laparis6-right {
+	// 	@include breakpoint("small") {
+	// 		.emthemesModez-banner-figure {
+	// 			order: 2;
+	// 			margin-left: $column-gutter / 2;
+	// 			margin-right: 0;
+	// 		}
+
+	// 		.emthemesModez-banner-figcaption {
+	// 			order: 1;
+	// 			margin-left: 0;
+	// 			margin-right: $column-gutter / 2;
+	// 		}
+	// 	}
+	// }
+
+	// .emthemesModez-banner--laparis6-left-right:nth-child(2n+1) {
+	// 	@include breakpoint("small") {
+	// 		.emthemesModez-banner-figure {
+	// 			order: 2;
+	// 			margin-left: $column-gutter / 2;
+	// 			margin-right: 0;
+	// 		}
+
+	// 		.emthemesModez-banner-figcaption {
+	// 			order: 1;
+	// 			margin-left: 0;
+	// 			margin-right: $column-gutter / 2;
+	// 		}
+	// 	}
+	// }
+
+	.emthemesModez-banner--laparis6-right-left:nth-child(2n) {
+		@include breakpoint("small") {
+			.emthemesModez-banner-figure {
+				order: 2;
+				margin-left: $column-gutter / 2;
+				margin-right: 0;
+			}
+
+			.emthemesModez-banner-figcaption {
+				order: 1;
+				margin-left: 0;
+				margin-right: $column-gutter / 2;
+			}
+		}
+	}
+
+	.emthemesModez-banner-figure {
+		@include breakpoint("small") {
+			flex: 1;
+			margin: 0 $column-gutter / 2 0 0;
+		}
+	}
+
+	.emthemesModez-banner-figcaption {
+		@include breakpoint("small") {
+			flex: 1;
+			margin: 0 0 0 $column-gutter / 2;
+		}
+	}
+}
+
+
+
+.emthemesModez-bannersContainer--quarter .emthemesModez-banner {
+	@include breakpoint("small") {
+        width: grid-calc(3, $total-columns);
+    }
+}
+
+
+
+// ============================================================================
+// Banner Style LaParis1
+// ============================================================================
+
+.emthemesModez-bannersContainer--laparis1 {
+	position: relative;
+}
+
+
+.emthemesModez-banner--laparis1 {
+
+	margin-bottom: spacing("double");
+
+	@include breakpoint("small") {
+		margin-bottom: 0;
+	}
+
+	@include breakpoint("medium") {
+		.emthemesModez-banner-figure {
+			margin-bottom: 0;
+		}
+	}
+
+	@include breakpoint("large") {
+		&:nth-child(3) {
+			margin-top: spacing("single") * 4;
+		}
+	}
+
+
+	img {
+		max-width: 100%;
+	}
+
+	.emthemesModez-banner-figcaption-body {
+		text-align: center;
+
+		@include breakpoint("small") {
+			text-align: left;
+		}
+	}
+
+	.emthemesModez-banner-figure {
+		margin-bottom: 0;
+	}
+
+
+	&:first-child {
+		@include breakpoint("small") {
+			@include clearfix;
+
+			.emthemesModez-banner-figure {
+				float: right;
+				width: 50%;
+			}
+
+			.emthemesModez-banner-figcaption {
+				float: left;
+				width: 50%;
+				background: url("../img/banner-laparis1-bg.png") 30px 30px no-repeat;
+			}
+
+			.emthemesModez-banner-figcaption-body {
+				margin-left: spacing("single")	* 4;
+				margin-top: spacing("single") * 2;
+				padding: spacing("single") * 2;
+				border: 1px solid container("borderColor");
+				border-right: 0;
+				background: $color-secondary;
+			}
+		}
+
+		@include breakpoint("medium") {
+			.emthemesModez-banner-figcaption-body {
+				margin-top: spacing("single") * 3;
+				padding: spacing("single") * 4;
+			}
+		}
+	}
+
+	
+	&:nth-child(2) {
+		width: 100%;
+		position: relative;
+
+		.emthemesModez-banner-figcaption {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: 0;
+			display: flex;
+		}
+
+		.emthemesModez-banner-figcaption-body {
+			text-align: center;
+			margin: auto spacing("single") * 6;
+			width: 100%;
+		}
+
+		.emthemesModez-banner-figcaption-title {
+			padding-bottom: spacing("single") + spacing("quarter");
+			border-bottom: 1px solid container("borderColor");
+		}
+
+		.emthemesModez-banner-figcaption-text {
+
+		}
+
+		.emthemesModez-banner-figcaption-button {
+			@include buttonVariant("default");
+			border-width: 2px;
+			width: 100%;
+		}
+
+		@include breakpoint("small") {
+			width: auto;
+			position: absolute;
+			bottom: 0;
+			right: 50%;
+			padding-right: spacing("single") * 3;
+
+
+			.emthemesModez-banner-figcaption {
+				left: $column-gutter / 2;
+				right: spacing("single") * 3;
+			}
+
+			.emthemesModez-banner-figcaption-body {
+				margin: auto spacing("single") * 3;
+			}
+		}
+
+		@include breakpoint("medium") {
+			.emthemesModez-banner-figcaption-body {
+				margin: auto spacing("single") * 6;
+			}
+		}
+
+		@include breakpoint("large") {
+			.emthemesModez-banner-figcaption-body {
+				margin: auto spacing("single") * 8;
+			}
+		}
+	}
+
+	&:nth-child(3) {
+		display: flex;
+		align-items: center;
+
+		.emthemesModez-banner-figure {
+			flex: 1;
+		}
+
+		.emthemesModez-banner-figcaption {
+			flex: 1;
+			padding-left: spacing("single");
+			margin-top: 0;
+		}
+
+		.emthemesModez-banner-figcaption-body {
+			text-align: center;
+		}
+
+		.emthemesModez-banner-figcaption-button {
+			@include buttonVariant("default");
+			border: 0;
+		}
+
+
+		@include breakpoint("small") {
+			width: 50%;
+			margin-left: 50%;
+			margin-top: spacing("single") * 6;
+			padding-left: 0;
+
+			display: flex;
+			align-items: center;
+
+			.emthemesModez-banner-figure {
+				flex: 0 0 auto;
+				max-width: 50%;
+			}
+
+			.emthemesModez-banner-figcaption {
+				flex: 1;
+				padding: spacing("single") * 1;
+			}
+
+			.emthemesModez-banner-figcaption-body {
+				text-align: center;
+			}
+
+			.emthemesModez-banner-figcaption-button {
+				@include buttonVariant("default");
+				border: 0;
+			}
+		}
+
+		@include breakpoint("medium") {
+			margin-top: spacing("single") * 8;
+
+			.emthemesModez-banner-figcaption {
+				padding: spacing("single") * 3;
+			}
+		}
+
+		@include breakpoint("large") {
+			margin-top: spacing("single") * 6;
+		}
+	}
+
+	
+}
+
+
+// ============================================================================
+// Banner Style LaParis2
+// ============================================================================
+
+.emthemesModez-bannersContainer--laparis2 {
+	@include breakpoint("small") {
+		display: flex;
+
+		&:before,
+		&:after {
+			display: none;
+		}
+	}
+}
+
+.emthemesModez-banner--laparis2 {
+	@include breakpoint("small") {
+		width: auto;
+		position: relative;
+	}
+
+	+ .emthemesModez-banner--laparis2 {
+		margin-top: spacing("single");
+
+		@include breakpoint("small") {
+			margin-top: 0;
+		}
+	}
+
+	.emthemesModez-banner-figure {
+		margin-bottom: 0;
+	}
+
+	.emthemesModez-banner-image {
+		width: 100%;
+		@include breakpoint("small") {
+			width: auto;
+		}
+	}
+
+	.emthemesModez-banner-figcaption {
+		@include breakpoint("small") {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			max-width: 100%;
+			transform: translate(-50%, -50%);
+			margin: 0;
+		}
+	}
+
+	.emthemesModez-banner-figcaption-title {
+		font-family: stencilFontFamily("headings-font");
+		font-weight: stencilFontWeight("headings-font");
+		font-size: fontSize("larger") * 3;
+		text-transform: uppercase;
+		margin-bottom: spacing("half");
+		padding-bottom: spacing("half");
+		line-height: fontSize("larger") * 2 * 1.1;
+
+		@include breakpoint("small") {
+			color: color("whites", "bright");
+			border-bottom: 1px solid rgba(color("whites", "bright"), 0.7);
+		}
+
+		small {
+			font-size: fontSize("larger") * 2;
+			color: inherit;
+		}
+	}
+
+	.emthemesModez-banner-figcaption-text {
+		text-transform: uppercase;
+		margin-bottom: 0;
+
+		@include breakpoint("small") {
+			color: color("whites", "bright");
+		}
+	}
+
+	.emthemesModez-banner-figcaption-button {
+		margin-top: spacing("single");
+	}
+}
+
+
+
+
+// ============================================================================
+// Banner Style LaParis3
+// ============================================================================
+
+.emthemesModez-bannersContainer--laparis3 {
+	@include breakpoint("small") {
+		position: relative;
+
+		.emthemesModez-bannersContainer--laparis2 + & {
+			margin-top: $column-gutter - spacing("single") * 4;
+		}
+	}
+}
+
+.emthemesModez-banner--laparis3 {
+
+	&:first-child {
+		@include breakpoint("small") {
+			position: absolute;
+			width: grid-calc(1, 3);
+			height: 100%;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+		}
+
+		.emthemesModez-banner-image {
+			@include breakpoint("small") {
+				min-height: 100%;
+				min-width: 100%;
+				max-width: none;
+				width: auto;
+			}
+		}
+	}
+
+	+ .emthemesModez-banner--laparis3 {
+		margin-top: spacing("single");
+
+		@include breakpoint("small") {
+			margin-top: 0;
+			margin-left: grid-calc(1, 3);
+			width: grid-calc(2, 3);
+			display: flex;
+		}
+
+		.emthemesModez-banner-figure {
+			flex: 1 1 50%;
+			order: 2;
+			margin-bottom: 0;
+			background-color: color("greys", "lightest");
+		}
+
+		.emthemesModez-banner-figcaption {
+			flex: 1 1 50%;
+			order: 1;
+			margin-top: 0;
+			background-color: color("greys", "lightest");
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: spacing("single");
+
+			@include breakpoint("small") {
+				position: relative;
+			}
+
+			&:before {
+				@include breakpoint("small") {
+					content: '\f0da';
+					font-family: FontAwesome;
+					font-size: 50px;
+					color: color("greys", "lightest");
+					position: absolute;
+					top: 50%;
+					right: 0;
+					transform: translate(80%, -50%);
+				}
+			}
+		}
+
+		+ .emthemesModez-banner--laparis3 {
+			@include breakpoint("small") {
+				margin-top: $column-gutter;
+			}
+
+			.emthemesModez-banner-figure {
+				order: 1;
+			}
+
+			.emthemesModez-banner-figcaption {
+				order: 2;
+
+				&:before {
+					@include breakpoint("small") {
+						content: '\f0d9';
+						left: 0;
+						right: auto;
+						transform: translate(-80%, -50%);
+					}
+				}
+			}
+		}
+	}
+
+	.emthemesModez-banner-figcaption-title {
+		small {
+			font-family: stencilFontFamily("headings-font");
+			font-weight: stencilFontWeight("headings-font");
+			color: inherit;
+			text-transform: uppercase;
+		}
+
+		strong {
+			font-family: stencilFontFamily("headings-font");
+			font-weight: stencilFontWeight("headings-font");
+			font-size: fontSize("smallest");
+			text-transform: uppercase;
+			background-color: color("greys", "light");
+			color: color("whites", "bright");
+			padding: spacing("eighth") spacing("half");
+		}
+	}
+
+	.emthemesModez-banner-image {
+		width: 100%;
+
+		@include breakpoint("small") {
+			width: auto;
+		}
+	}
+}
+
+
+
+
+// ============================================================================
+// Banner Style LaParis4
+// ============================================================================
+
+.emthemesModez-bannersContainer--laparis4 {
+	padding: 0;
+	margin-left: (-$container-padding);
+	margin-right: (-$container-padding);
+
+	@include breakpoint("large") {
+		$i: ($emthemesModez-body-max-large - remCalc(1122px))/2;
+		margin-left: -$i;
+		margin-right: -$i;
+	}
+
+	@include breakpoint("xxlarge") {
+		$i: ($emthemesModez-body-max-xxlarge - remCalc(1122px))/2;
+		margin-left: -$i;
+		margin-right: -$i;
+	}
+}
+
+.emthemesModez-banner--laparis4 {
+	padding: 0;
+
+	a:hover,
+	a:focus {
+		.emthemesModez-banner-image {
+			filter: brightness(120%);
+		}
+	}
+}
+
+
+
+
+
+// ============================================================================
+// Banner Style LaParis5 - Use in home 04
+// ============================================================================
+
+.emthemesModez-bannersContainer--laparis5 {
+	@include breakpoint("small") {
+		display: flex;
+		align-items: center;
+
+
+		&:before,
+		&:after {
+			display: none;
+		}
+	}
+}
+
+.emthemesModez-banner--laparis5 {
+	@include breakpoint("small") {
+		width: auto;
+		position: relative;
+	}
+
+	+ .emthemesModez-banner--laparis5 {
+		margin-top: spacing("single");
+
+		@include breakpoint("small") {
+			margin-top: 0;
+		}
+	}
+
+	.emthemesModez-banner-figure {
+		margin-bottom: 0;
+	}
+
+	.emthemesModez-banner-image {
+		width: 100%;
+		@include breakpoint("small") {
+			width: auto;
+		}
+	}
+
+	.emthemesModez-banner-figcaption {
+		@include breakpoint("small") {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			transform: translateY(-50%);
+			margin: 0;
+			padding: spacing("single") * 3;
+		}
+	}
+
+	.emthemesModez-banner-figcaption-body {
+		@include breakpoint("small") {
+			display: table;
+			margin: auto;
+		}
+	}
+
+	.emthemesModez-banner-figcaption-title {
+		font-family: stencilFontFamily("headings-font");
+		font-weight: stencilFontWeight("headings-font");
+		font-size: fontSize("larger") * 2;
+		line-height: lineHeight("base");
+		margin-bottom: spacing("half");
+
+		small {
+			font-size: fontSize("larger") * 1.5;
+			color: inherit;
+		}
+	}
+
+	.emthemesModez-banner-figcaption-text {
+		text-transform: uppercase;
+		margin-bottom: 0;
+
+		@include breakpoint("small") {
+			color: color("whites", "bright");
+		}
+	}
+
+	.emthemesModez-banner-textBg {
+		display: inline;
+		line-height: 2;
+		color: stencilColor("color-textBase");
+		background-color: stencilColor("body-bg");
+	}
+
+	.emthemesModez-banner-figcaption-button {
+		margin-top: spacing("single");
+		font-family: stencilFontFamily("headings-font");
+		font-weight: stencilFontWeight("headings-font");
+		font-size: fontSize("large");
+		text-transform: none;
+		color: stencilColor("color-textBase");
+		background-color: stencilColor("body-bg");
+		line-height: lineHeight("base");
+		padding: spacing("quarter") spacing("half");
+		border: 0;
+
+		&:after {
+			content: ' ';
+			display: block;
+			height: 1px;
+			border-top: 1px solid stencilColor("color-textBase");
+			margin-top: -(spacing("eighth"));
+		}
+	}
+}
+
+.emthemesModez-banner--laparis5-alt:first-child {
+	.emthemesModez-banner-figcaption {
+		@include breakpoint("small") {
+			left: 50%;
+		}
+	}
+}
+
+
+
+// ============================================================================
+// Banner Style LaParis7 - Custom banner for HereComesTheInvite
+// ============================================================================
+
+.emthemesModez-bannersContainer--one-laparis7 {
+	@extend %emthemesModez-bannersContainer--fullWidth;
+
+	.emthemesModez-banner-image {
+		width: 100%;
+	}
+}
+
+.emthemesModez-banner--laparis7 {
+	@extend %emthemesModez-banner--noPadding;
+
+	@include breakpoint("small") {
+		position: relative;
+
+		.emthemesModez-banner-figure {
+			margin-bottom: 0;
+		}
+
+		.emthemesModez-banner-figcaption {
+			position: absolute;
+			left: 25%;
+			top: 50%;
+			max-width: 50%;
+			transform: translate(-50%, -50%);
+			background-color: rgba(color("whites", "bright"), 0.9);
+			padding: spacing("double");
+			margin: 0;
+		}
+	}
+
+	@include breakpoint("medium") {
+		.emthemesModez-banner-figcaption {
+			max-width: 25%;
+		}
+	}
+}
+
+
+// ============================================================================
+// Banner Style LaParis8 - Custom banner for HereComesTheInvite
+// ============================================================================
+
+%emthemesModez-bannersContainer--half-laparis8,
+.emthemesModez-bannersContainer--half-laparis8 {
+	@extend %emthemesModez-bannersContainer--fullWidth;
+
+	display: flex;
+
+	.emthemesModez-banner {
+		width: auto;
+	}
+}
+
+%emthemesModez-banner--laparis8,
+.emthemesModez-banner--laparis8 {
+	@extend %emthemesModez-banner--noPadding;
+
+	@include breakpoint("small") {
+		position: relative;
+		text-align: center;
+
+		.emthemesModez-banner-figure {
+			margin-bottom: 0;
+		}
+
+		.emthemesModez-banner-figcaption {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			padding: spacing("double");
+			margin: 0;
+		}
+	}
+
+	@include breakpoint("medium") {
+		.emthemesModez-banner-figcaption {
+			
+		}
+	}
+}
+
+// ============================================================================
+// Banner Style LaParis9 - Custom banner for HereComesTheInvite
+// ============================================================================
+
+.emthemesModez-bannersContainer--quarter-laparis9 {
+	@extend %emthemesModez-bannersContainer--half-laparis8;
+}
+
+.emthemesModez-banner--laparis9 {
+	@extend %emthemesModez-banner--laparis8;
+}
+
+
+
+// ============================================================================
+// Fullscreen Banner
+// ============================================================================
+
+.emthemesModez-bannersContainer--fullscreen {
+	display: none;
+	margin: 0 auto;
+	text-align: center;
+
+	.modal-content & {
+		display: block;
+	}
+
+	.emthemesModez-banner {
+		width: auto;
+	}
+
+	.emthemesModez-banner-figure {
+		display: flex;
+		flex-direction: column;
+
+		> a {
+			order: 2
+		}
+	}
+
+	a:hover,
+	a:focus {
+		.emthemesModez-banner-image {
+			filter: none;
+		}
+	}
+
+	.emthemesModez-banner-figcaption {
+		margin-bottom: spacing("single");
+	}
+
+	.emthemesModez-banner-figcaption-body {
+		order: 1;
+	}
+
+	.emthemesModez-banner-figcaption-text {
+		font-size: remCalc(50px);
+		font-weight: fontWeight("bold");
+		color: $color-textBase;
+	}
+}

@@ -1,0 +1,127 @@
+
+
+
+.emthemesModez-instafeed {
+    @include grid-row($behavior: "nest");
+    font-size: 0; // 1
+    margin: 0 -3px;
+}
+
+
+.emthemesModez-instafeed-item {
+    @include grid-column(6, $float: none);
+    display: inline-block;
+    font-size: fontSize("base"); // 1
+    vertical-align: top;
+    padding: 0 3px;
+    margin: 3px 0;
+
+    @include breakpoint("small") {
+        width: grid-calc(1, 5);
+    }
+
+    img {
+    	max-width: 100%;
+    }
+}
+
+.emthemesModez-instafeed-item--maxCol6 {
+    @include breakpoint("small") {
+        width: grid-calc(1, 6);
+    }
+}
+
+.emthemesModez-instafeed-container {
+	position: relative;
+    margin-bottom: spacing("single") * 4;
+    text-align: center;
+}
+
+.emthemesModez-instafeed-desc {
+    margin-bottom: spacing("double");
+
+    .u-sep + &,
+    .page-heading + & {
+        margin-top: -(spacing("single") + spacing("half"));
+    }
+}
+
+.emthemesModez-instafeed-content {
+
+    .page-heading {
+        margin-bottom: spacing("single");
+    }
+
+    .emthemesModez-instafeed-desc {
+        margin-bottom: spacing("single");
+        margin-top: 0;
+    }
+
+    @include breakpoint("small") {
+    	position: absolute;
+    	width: 60%;
+    	left: 50%;
+    	top: 50%;
+    	transform: translate3d(-50%, -50%, 0);
+    	padding: spacing("single") spacing("single") * 2;
+    	background: rgba(stencilColor("instagram-backgroundColor"), stencilNumber("instagram-opacity"));
+    	text-align: center;
+    	color: $color-primary;
+
+        .emthemesModez-instafeed-desc {
+            margin-bottom: 0;
+        }
+    }
+
+    @include breakpoint("medium") {
+        width: 40%;
+        padding: spacing("double") spacing("single") * 3;
+    }
+
+
+}
+
+// VARIATIONS
+// ----------------------------------------------------------------------------
+
+.emthemesModez-instafeed--fullscreen {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.emthemesModez-instafeed--carousel {
+    .emthemesModez-instafeed-item {
+        float: left;
+    }
+
+    .slick-prev {
+        left: 0;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+}
+
+
+
+// Variation wide boxed
+// ----------------------------------------------------------------------------
+// - Display as wide boxed carousel
+// ----------------------------------------------------------------------------
+
+.emthemesModez-instafeed-container--wide {
+    @include breakpoint("large") {
+        $i: ($emthemesModez-body-max-large - remCalc(1122px))/2;
+        margin-left: -$i;
+        margin-right: -$i;
+    }
+
+    @include breakpoint("xxlarge") {
+        $i: ($emthemesModez-body-max-xxlarge - remCalc(1122px))/2;
+        margin-left: -$i;
+        margin-right: -$i;
+    }
+}
+

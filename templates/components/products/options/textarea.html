@@ -1,0 +1,15 @@
+<div class="form-field" data-product-attribute="textarea">
+    <label class="form-label form-label--alternate form-label--inlineSmall" for="attribute_{{id}}">
+        {{display_name}}:
+
+        {{#if required}}
+            <small class="emthemesModez-requiredMark">{{lang 'common.required'}}</small>
+        {{/if}}
+
+        {{> components/emthemes-modez/products/field-guide}}
+    </label>
+
+    <textarea class="form-input" id="attribute_{{id}}" name="attribute[{{id}}]" {{#if required}}required{{/if}}>
+        {{prefill}}
+    </textarea>
+</div>

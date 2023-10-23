@@ -1,0 +1,143 @@
+<nav class="navPages navPages--align-{{theme_settings.navPages-align}}">
+    <!-- Add custom logo to sticky menu -->
+    <div class="sticky-logo">
+        <a href="{{urls.home}}">
+            <img src="{{lang 'header.sticky-menu.img'}}" alt="{{settings.store_name}}">
+        </a>
+    </div>
+        
+    <ul class="navPages-list">
+        {{#each categories}}
+            <li class="navPages-item">
+                {{> components/common/navigation-mega
+                    type='category'
+                    mega_style=(lang (concat 'emthemesmodez.megamenu.mega_cat_' @index))
+                }}
+            </li>
+        {{/each}}
+        {{#unless theme_settings.hide_content_navigation}}
+            {{#each pages}}
+                 <li class="navPages-item">
+                    {{> components/common/navigation-mega
+                        type='page'
+                        mega_style=(lang (concat 'emthemesmodez.megamenu.mega_page_' @index))
+                    }}
+                 </li>
+             {{/each}}
+        {{/unless}}
+    </ul>
+    
+    <ul class="navPages-list navPages-list--right {{#if theme_settings.navPages-show-cart}}navPages-list--showCart{{/if}}">
+        <li class="navPages-item navPages-item--compare">
+            <a class="navPages-action navPages-action--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span></a>
+        </li>
+        <li class="navPages-item">
+            <a class="navPages-action navPages-action--quickSearch" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
+                <span class="navPages-item-icon navPages-item-searchIcon emthemesModez-icon-linear-magnifier"></span>
+                <span class="navPages-item-searchLabel">{{lang 'common.search'}}</span>
+            </a>
+        </li>
+        <li class="navPages-item navPages-item--cart">
+            <a
+                class="navPages-action"
+                data-cart-preview
+                data-collapsible="cart-preview-dropdown2"
+                href="{{urls.cart}}">
+                <span class="navPages-item-icon navPages-item-cartIcon emthemesModez-icon-linear-cart2"></span>
+                <span class="navPages-item-cartLabel">{{lang 'common.cart'}}</span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+            </a>
+
+            <div class="dropdown-menu" id="cart-preview-dropdown2" aria-hidden="true"></div>
+        </li>
+    </ul>
+    <ul class="navPages-list navPages-list--user">
+        {{#if currency_selector.currencies.length '>' 1}}
+            <li class="navPages-item">
+                <a class="navPages-action has-subMenu" href="#" data-collapsible="navPages-currency" aria-controls="navPages-currency" aria-expanded="false">
+                    {{lang 'common.currency' code=currency_selector.active_currency_code}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use></svg></i>
+                </a>
+                <div class="navPage-subMenu" id="navPages-currency" aria-hidden="true" tabindex="-1">
+                    <ul class="navPage-subMenu-list">
+                        {{#each currency_selector.currencies}}
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{{switch_url}}}">
+                                {{#if is_active}}
+                                    <strong>{{name}}</strong>
+                                {{else}}
+                                    {{name}}
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </li>
+        {{/if}}
+        {{#if settings.gift_certificates_enabled}}
+            <li class="navPages-item">
+                <a class="navPages-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+            </li>
+        {{/if}}
+        {{#if customer.store_credit.value '>' 0}}
+            <li class="navPages-item">
+                <a class="navPages-action navPages-action--storeCredit">
+                    {{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}
+                </a>
+            </li>
+        {{/if}}
+        {{#if theme_settings.product_list_display_mode '==' 'list'}}
+            <li class="navPages-item">
+                <a class="navPages-action navPages-action--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span></a>
+            </li>
+        {{/if}}
+        {{#if customer}}
+            <li class="navPages-item">
+                <a class="navPages-action has-subMenu" href="{{urls.account.index}}" data-collapsible="navPages-account">
+                    {{lang 'common.account'}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                </a>
+                <div class="navPage-subMenu" id="navPages-account" aria-hidden="true" tabindex="-1">
+                    <ul class="navPage-subMenu-list">
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+                        </li>
+                        {{#if settings.returns_enabled}}
+                            <li class="navPage-subMenu-item">
+                                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.returns}}">{{lang 'account.nav.returns'}}</a>
+                            </li>
+                        {{/if}}
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.inbox}}">{{lang 'account.mobile_nav.messages'}}</a>
+                        </li>
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.addresses}}">{{lang 'account.nav.addresses'}}</span></a>
+                        </li>
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
+                        </li>
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
+                        </li>
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.details}}">{{lang 'account.nav.settings'}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="navPages-item">
+                <a class="navPages-action" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+            </li>
+        {{else}}
+            <li class="navPages-item">
+                <a class="navPages-action" href="{{urls.auth.login}}">{{lang 'common.login'}}</a>
+                {{#if settings.account_creation_enabled}}
+                    {{lang 'common.or'}} <a class="navPages-action" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+                {{/if}}
+            </li>
+        {{/if}}
+        {{#if theme_settings.social_icon_placement_top}}
+            <li class="navPages-item">
+                {{> components/common/social-links}}
+            </li>
+        {{/if}}
+    </ul>
+</nav>

@@ -1,0 +1,86 @@
+{{#if style '==' 'laparis4'}}
+<section class="productCarousel"
+    data-slick='{
+        "dots": false,
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "responsive": [
+            {
+                "breakpoint": 1420,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": {{ columns }}
+                }
+            },
+            {
+                "breakpoint": 1260,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": {{#if columns ">" 6}}6{{else}}{{columns}}{{/if}}
+                }
+            },
+            {
+                "breakpoint": 800,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 4
+                }
+            },
+            {
+                "breakpoint": 550,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 2
+                }
+            }
+        ]
+    }'
+>
+    {{#each products}}
+    <div class="productCarousel-slide">
+        {{> components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_compare=../show_compare show_wishlist=../show_wishlist style=../style}}
+    </div>
+    {{/each}}
+</section>
+{{else}}
+<section class="productCarousel"
+    data-slick='{
+        "dots": false,
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "responsive": [
+            {
+                "breakpoint": 1260,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": {{ columns }}
+                }
+            },
+            {
+                "breakpoint": 800,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 5
+                }
+            },
+            {
+                "breakpoint": 550,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 3
+                }
+            }
+        ]
+    }'
+>
+    {{#each products}}
+    <div class="productCarousel-slide">
+        {{> components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_compare=../show_compare show_wishlist=../show_wishlist style=../style}}
+    </div>
+    {{/each}}
+</section>
+{{/if}}

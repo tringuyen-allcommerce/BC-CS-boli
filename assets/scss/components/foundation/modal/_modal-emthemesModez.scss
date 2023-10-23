@@ -1,0 +1,26 @@
+.modal {
+	overflow: visible; /* Giao: Fix issue quick-view product does not show up on some old BigCommerce store */
+}
+
+.modal--fullscreen {
+	max-width: 100%;
+	width: 100%;
+	max-height: 100%;
+	margin: 0;
+	background-color: transparent;
+
+	.modal-content {
+		height: 100vh;
+		display: flex;
+		align-items: center;
+	}
+
+	.modal-body {
+		max-height: 100vh !important;
+		flex: 1;
+	}
+}
+
+.has-activeModal--fullscreen .modal-background {
+	background-color: rgba(container("fill"), 0.95);
+}

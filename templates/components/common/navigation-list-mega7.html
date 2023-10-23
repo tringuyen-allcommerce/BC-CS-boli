@@ -1,0 +1,16 @@
+<div class="navPage-subMenu navPage-subMenu--mega2" id="navPages-{{#if type '===' 'category'}}{{id}}{{else}}page-{{@index}}{{/if}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list">
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+        </li>
+        {{#each children}}
+            <li class="navPage-subMenu-item">
+                <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+            </li>
+        {{/each}}
+    </ul>
+    <div class="navPage-subMenu-banner-list">
+        <div class="navPage-subMenu-banner-item"><a href="https://bolioptics.com/microscopes/biological"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/megamenu-bio.jpg" alt="Biological Microscopes"></a></div>
+        <div class="navPage-subMenu-banner-item"><a href="https://bolioptics.com/microscopes/stereo"><img src="https://cdn7.bigcommerce.com/s-y7qa3t3bno/product_images/uploaded_images/megamenu-stereo2.jpg" alt="Stereo Microscopes"></a></div>
+    </div>
+</div>

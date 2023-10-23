@@ -1,0 +1,362 @@
+
+{{#if section '==' 'slideshow'}}
+    {{#if carousel}}
+        {{> components/carousel}}
+    {{/if}}
+{{/if}}
+
+
+{{#if section '==' 'new_products'}}
+    {{#if products.new}}
+        <div class="emthemesModez-section emthemesModez-section--newProducts {{#if style}}emthemesModez-section-products-{{style}}{{/if}}">
+        {{> components/products/new 
+            products=products.new 
+            show_compare=theme_settings.show_product_compare
+            show_wishlist=settings.show_wishlist
+            columns=theme_settings.homepage_new_products_column_count 
+            display_type=theme_settings.homepage_new_products_display_type}}
+
+        </div>
+    {{/if}}
+{{/if}}
+
+
+{{#if section '==' 'featured_products'}}
+    {{#if products.featured}}
+        <div class="emthemesModez-section emthemesModez-section--featuredProducts {{#if style}}emthemesModez-section-products-{{style}}{{/if}}">
+        {{> components/products/featured 
+            products=products.featured 
+            show_compare=theme_settings.show_product_compare
+            show_wishlist=settings.show_wishlist
+            columns=theme_settings.homepage_featured_products_column_count 
+            display_type=theme_settings.homepage_featured_products_display_type}}
+        </div>
+    {{/if}}
+{{/if}}
+
+{{#if section '==' 'popular_products'}}
+    {{#if products.top_sellers}}
+        <div class="emthemesModez-section emthemesModez-section--topProducts {{#if style}}emthemesModez-section-products-{{style}}{{/if}}">
+        {{> components/products/top 
+            products=products.top_sellers 
+            show_compare=theme_settings.show_product_compare
+            show_wishlist=settings.show_wishlist
+            columns=theme_settings.homepage_top_products_column_count 
+            display_type=theme_settings.homepage_top_products_display_type}}
+        </div>
+    {{/if}}
+{{/if}}
+
+{{#if section '==' 'special_products_tabs'}}
+    <div class="emthemesModez-section {{#if index}}emthemesModez-section--index{{index}}{{/if}} emthemesModez-section--specialProductsTabs">
+        {{> components/emthemes-modez/sections/section-special-products-tabs style="parallaxbag"}}
+    </div>
+{{/if}}
+
+{{#if section '==' 'special_products_columns'}}
+    <div class="emthemesModez-section emthemesModez-section--specialProductsColumns">
+        <section class="emthemesModez-specialProductsColumns">
+            {{#if products.new}}
+            <div class="emthemesModez-specialProductsColumns-column">
+                {{> components/products/new 
+                    products=products.new 
+                    columns=1
+                    display_type='list'}}
+            </div>
+            {{/if}}
+            {{#if products.featured}}
+            <div class="emthemesModez-specialProductsColumns-column">
+                {{> components/products/featured 
+                    products=products.featured 
+                    columns=1 
+                    display_type='list'}}
+            </div>
+            {{/if}}
+            {{#if products.top_sellers}}
+            <div class="emthemesModez-specialProductsColumns-column">
+                {{> components/products/top 
+                    products=products.top_sellers 
+                    columns=1 
+                    display_type='list'}}
+            </div>
+            {{/if}}
+        </section>
+    </div>
+{{/if}}
+
+{{#if section '==' 'products_by_category_1'}}
+    <div class="emthemesModez-section {{#if index}}emthemesModez-section--index{{index}}{{/if}} emthemesModez-section--productsByCategory">
+    {{> components/emthemes-modez/sections/section-products-by-category index=1}}
+    </div>
+{{/if}}
+
+{{#if section '==' 'products_by_category_2'}}
+    <div class="emthemesModez-section {{#if index}}emthemesModez-section--index{{index}}{{/if}} emthemesModez-section--productsByCategory">
+    {{> components/emthemes-modez/sections/section-products-by-category index=2}}
+    </div>
+{{/if}}
+
+{{#if section '==' 'products_by_category_3'}}
+    <div class="emthemesModez-section {{#if index}}emthemesModez-section--index{{index}}{{/if}} emthemesModez-section--productsByCategory">
+    {{> components/emthemes-modez/sections/section-products-by-category index=3}}
+    </div>
+{{/if}}
+
+{{#if section '==' 'categories_featured'}}
+    {{> components/emthemes-modez/products/categories-featured}}
+{{/if}}
+
+{{#if section '==' 'blog_recent'}}
+    {{> components/emthemes-modez/blog/featured posts=blog.recent_posts}}
+{{/if}}
+
+{{#if section '==' 'instagram_grid'}}
+    {{> components/emthemes-modez/instagram/grid}}
+{{/if}}
+
+{{#if section '==' 'instagram_carousel'}}
+    {{> components/emthemes-modez/instagram/carousel columns=theme_settings.instagram_column_count}}
+{{/if}}
+
+{{#if section '==' 'brands_carousel'}}
+    {{> components/emthemes-modez/brand/carousel hide_heading=true hide_view_all=true type="static"}}
+{{/if}}
+
+
+{{#if section '==' 'banner_2313_1'}}
+    {{> components/emthemes-modez/banners/twothird-onethird index=1}}
+{{/if}}
+
+{{#if section '==' 'banner_2313_2'}}
+    {{> components/emthemes-modez/banners/twothird-onethird index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_2313_3'}}
+    {{> components/emthemes-modez/banners/twothird-onethird index=3}}
+{{/if}}
+
+{{#if section '==' 'banner_3x_1'}}
+    {{> components/emthemes-modez/banners/onethird-x3 index=1}}
+{{/if}}
+
+{{#if section '==' 'banner_3x_2'}}
+    {{> components/emthemes-modez/banners/onethird-x3 index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_3x_3'}}
+    {{> components/emthemes-modez/banners/onethird-x3 index=3}}
+{{/if}}
+
+{{#if section '==' 'banner_one_1'}}
+    {{> components/emthemes-modez/banners/one index=1}}
+    </div>
+{{/if}}
+
+{{#if section '==' 'banner_one_2'}}
+    {{> components/emthemes-modez/banners/one index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_one_3'}}
+    {{> components/emthemes-modez/banners/one index=3}}
+{{/if}}
+
+{{#if section '==' 'banner_half_1'}}
+    {{> components/emthemes-modez/banners/half index=1}}
+{{/if}}
+
+{{#if section '==' 'banner_half_2'}}
+    {{> components/emthemes-modez/banners/half index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_half_3'}}
+    {{> components/emthemes-modez/banners/half index=3}}
+{{/if}}
+
+{{#if section '==' 'banner_quarter_1'}}
+    {{> components/emthemes-modez/banners/quarter index=1}}
+{{/if}}
+
+{{#if section '==' 'banner_quarter_2'}}
+    {{> components/emthemes-modez/banners/quarter index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_quarter_3'}}
+    {{> components/emthemes-modez/banners/quarter index=3}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis1_1'}}
+    {{> components/emthemes-modez/banners/laparis1 index=1}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis1_2'}}
+    {{> components/emthemes-modez/banners/laparis1 index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis1_3'}}
+    {{> components/emthemes-modez/banners/laparis1 index=3}}
+{{/if}}
+
+
+{{#if section '==' 'banner_laparis2_1'}}
+    {{> components/emthemes-modez/banners/laparis2 index=1}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis2_2'}}
+    {{> components/emthemes-modez/banners/laparis2 index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis2_3'}}
+    {{> components/emthemes-modez/banners/laparis2 index=3}}
+{{/if}}
+
+
+{{#if section '==' 'banner_laparis3_1'}}
+    {{> components/emthemes-modez/banners/laparis3 index=1}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis3_2'}}
+    {{> components/emthemes-modez/banners/laparis3 index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis3_3'}}
+    {{> components/emthemes-modez/banners/laparis3 index=3}}
+{{/if}}
+
+
+{{#if section '==' 'banner_laparis4_1'}}
+    {{> components/emthemes-modez/banners/laparis4 index=1}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis4_2'}}
+    {{> components/emthemes-modez/banners/laparis4 index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis4_3'}}
+    {{> components/emthemes-modez/banners/laparis4 index=3}}
+{{/if}}
+
+
+{{#if section '==' 'banner_laparis5_1'}}
+    {{> components/emthemes-modez/banners/laparis5 index=1}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis5_2'}}
+    {{> components/emthemes-modez/banners/laparis5 index=2}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis5_3'}}
+    {{> components/emthemes-modez/banners/laparis5 index=3}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis5_4'}}
+    {{> components/emthemes-modez/banners/laparis5 index=4}}
+{{/if}}
+
+{{#if section '==' 'banner_laparis5_5'}}
+    {{> components/emthemes-modez/banners/laparis5 index=5}}
+{{/if}}
+
+
+{{#if section '==' 'carousel_laparis2_1'}}
+    {{> components/emthemes-modez/sections/section-carousel index=1}}
+{{/if}}
+
+{{#if section '==' 'carousel_laparis2_2'}}
+    {{> components/emthemes-modez/sections/section-carousel index=2}}
+{{/if}}
+
+{{#if section '==' 'carousel_laparis2_3'}}
+    {{> components/emthemes-modez/sections/section-carousel index=3}}
+{{/if}}
+
+
+{{#if section '==' 'text_1'}}
+    {{> components/emthemes-modez/sections/section-text
+        heading=(lang 'emthemesmodez.text_1.heading')
+        content=(lang 'emthemesmodez.text_1.content')
+        button=(lang 'emthemesmodez.text_1.button')
+        link=(lang 'emthemesmodez.text_1.link')
+    }}
+{{/if}}
+
+{{#if section '==' 'text_2'}}
+    {{> components/emthemes-modez/sections/section-text
+        heading=(lang 'emthemesmodez.text_2.heading')
+        content=(lang 'emthemesmodez.text_2.content')
+        button=(lang 'emthemesmodez.text_2.button')
+        link=(lang 'emthemesmodez.text_2.link')
+    }}
+{{/if}}
+
+{{#if section '==' 'text_3'}}
+    {{> components/emthemes-modez/sections/section-text
+        heading=(lang 'emthemesmodez.text_3.heading')
+        content=(lang 'emthemesmodez.text_3.content')
+        button=(lang 'emthemesmodez.text_3.button')
+        link=(lang 'emthemesmodez.text_3.link')
+    }}
+{{/if}}
+
+{{#if section '==' 'video_1'}}
+    {{> components/emthemes-modez/sections/section-video
+        heading=(lang 'emthemesmodez.video_1.heading')
+        content=(lang 'emthemesmodez.video_1.content')
+        button=(lang 'emthemesmodez.video_1.button')
+        link=(lang 'emthemesmodez.video_1.link')
+        youtube=(lang 'emthemesmodez.video_1.youtube')
+        image=(lang 'emthemesmodez.video_1.image')
+        index=1
+    }}
+{{/if}}
+
+{{#if section '==' 'parallaxbag_whatspecial'}}
+    {{> components/papa-parallaxbag/sections/section-what-special}}
+{{/if}}
+
+{{#if section '==' 'parallaxbag_newsletter'}}
+    {{#if settings.show_newsletter_box}}
+        {{> components/papa-parallaxbag/sections/section-newsletter}}
+    {{/if}}
+{{/if}}
+
+{{#if section '==' 'parallaxbag_somefeatures'}}
+    {{> components/papa-parallaxbag/sections/section-some-features}}
+{{/if}}
+
+{{#if section '==' 'parallaxbag_freeshippingreturn'}}
+    {{> components/papa-parallaxbag/sections/section-free-shipping-return}}
+{{/if}}
+
+{{#if section '==' 'parallaxbag_popular_categories'}}
+    {{> components/papa-parallaxbag/sections/section-popular-categories}}
+{{/if}}
+
+{{#if section '==' 'parallaxbag_promotionvideo'}}
+    {{> components/papa-parallaxbag/sections/section-promotion-video}}
+{{/if}}
+
+{{#if section '==' 'parallaxbag_sixbanners'}}
+    {{> components/papa-parallaxbag/sections/section-six-banners}}
+{{/if}}
+
+{{#if section '==' 'parallaxbag_testimonials'}}
+    {{> components/papa-parallaxbag/sections/section-testimonials}}
+{{/if}}
+
+
+{{#if section '==' 'parallaxbag_trending_products'}}
+    {{#if products.featured}}
+        <div class="emthemesModez-section emthemesModez-section--parallaxbag-trendingProducts">
+        {{> components/products/featured 
+            products=products.featured 
+            show_compare=theme_settings.show_product_compare
+            show_wishlist=settings.show_wishlist
+            columns=theme_settings.homepage_featured_products_column_count 
+            display_type=theme_settings.homepage_featured_products_display_type}}
+        </div>
+    {{/if}}
+{{/if}}
+
+{{#if section '==' 'parallaxbag_newstylefashion'}}
+    {{> components/papa-parallaxbag/sections/section-new-style-fashion}}
+{{/if}}

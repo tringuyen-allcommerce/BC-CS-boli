@@ -1,0 +1,51 @@
+{{!
+    Params:
+    - @index
+    - name: custom field name
+    - value: custom field value
+}}
+
+<div class="productView-suggests">
+    <div class="productView-section-heading">Suggested Accessories</div>
+    <div class="productCarousel" data-slick='{
+        "dots": false,
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "responsive": [
+            {
+                "breakpoint": 1420,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 5
+                }
+            },
+            {
+                "breakpoint": 1260,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 5
+                }
+            },
+            {
+                "breakpoint": 800,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 4
+                }
+            },
+            {
+                "breakpoint": 550,
+                "settings": {
+                    "slidesToScroll": 3,
+                    "slidesToShow": 2
+                }
+            }
+        ]
+    }'>
+        {{#each (split value ',')}}
+            <div class="productCarousel-slide"><article class="card" data-remote-product data-product-id="{{this}}"></article></div>
+        {{/each}}
+    </div>
+</div>

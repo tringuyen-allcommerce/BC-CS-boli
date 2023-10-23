@@ -1,0 +1,21 @@
+<div class="emthemesModez-banner emthemesModez-banner--laparis3">
+	<figure class="emthemesModez-banner-figure">
+		<a href="{{url}}"><img class="emthemesModez-banner-image" src="{{image}}" alt="{{title}}" title="{{title}}" /></a>
+	</figure>
+	<figcaption class="emthemesModez-banner-figcaption">
+		<div class="emthemesModez-banner-figcaption-body">
+
+			{{#if title '!=' ''}}{{#if title '!=' ' '}}			
+			<h4 class="emthemesModez-banner-figcaption-title">{{{title}}}</h4>
+			{{/if}}{{/if}}
+
+			{{#if text '!=' ''}}{{#if text '!=' ' '}}			
+			<div class="emthemesModez-banner-figcaption-text">{{{text}}}</div>
+			{{/if}}{{/if}}
+
+			{{#if button '!=' ''}}{{#if button '!=' ' '}}
+			<a href="{{url}}" class="button button--primary emthemesModez-banner-figcaption-button">{{{button}}}</a>
+			{{/if}}{{/if}}
+		</div>
+	</figcaption>
+</div>

@@ -1,0 +1,77 @@
+<article class="listItem">
+    <figure class="listItem-figure">
+        <img class="listItem-image" src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+        <figcaption class="listItem-figcaption">
+            <div class="listItem-figcaption-buttons">
+                {{#unless hide_product_quick_view}}
+                    {{#if theme_settings.show_product_quick_view}}
+                        <a href="#" class="button button--small listItem-figcaption-button quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</a>
+                    {{/if}}
+                {{/unless}}
+            </div>
+        </figcaption>
+    </figure>
+    <div class="listItem-body">
+        <div class="listItem-content">
+            <div class="listItem-details">
+                {{#if show_rating}}
+                {{#if num_reviews '>' 0}}
+                    <p class="listItem-rating">{{> components/products/ratings rating=rating}}</p>
+                {{/if}}
+                {{/if}}
+                {{#if theme_settings.show_product_card_brand}}
+                {{#if brand.name}}
+                <p class="listItem-brand">{{brand.name}}</p>
+                {{/if}}
+                {{/if}}
+                <h4 class="listItem-title">
+                    <a href="{{url}}">{{name}}</a>
+                </h4>
+                {{#if summary}}
+                    <p>{{summary}}</p>
+                {{/if}}
+            </div>
+            <div class="listItem-actions">
+                {{#unless theme_settings.hide_product_card_price}}
+                {{#if price}}
+                    <div class="listItem-price">{{> components/products/price price=price}}</div>
+                {{/if}}
+                {{/unless}}
+
+                <div class="listItem-actions-buttons">
+                    {{#unless hide_add_to_cart}}
+                        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                            {{#if show_cart_action}}
+                                {{#if has_options}}
+                                    <a href="{{url}}" class="button button--small listItem-button" data-product-id="{{id}}" data-tooltip="{{lang 'products.choose_options'}}"><span class="listItem-button-icon emthemesModez-icon-linear-cart2"></span><span class="listItem-button-text">{{lang 'products.choose_options'}}</span></a>
+                                {{/if}}
+                                {{#if pre_order}}
+                                    <a href="{{url}}" class="button button--small listItem-button" data-tooltip="{{lang 'products.pre_order'}}"><span class="listItem-button-icon emthemesModez-icon-linear-cart2"></span><span class="listItem-button-text">{{lang 'products.pre_order'}}</span></a>
+                                {{/if}}
+                                {{#if add_to_cart_url }}
+                                    <a href="{{add_to_cart_url}}" class="button button--small listItem-button" data-tooltip="{{lang 'products.add_to_cart'}}"><span class="listItem-button-icon emthemesModez-icon-linear-cart2"></span><span class="listItem-button-text">{{lang 'products.add_to_cart'}}</span></a>
+                                {{/if}}
+                                {{#if out_of_stock_message }}
+                                    <a href="{{url}}" class="button button--small listItem-button" data-product-id="{{id}}" data-tooltip="{{out_of_stock_message}}"><span class="listItem-button-icon emthemesModez-icon-linear-cart2"></span><span class="listItem-button-text">{{out_of_stock_message}}</span></a>
+                                {{/if}}
+                            {{/if}}
+                        {{/or}}
+                    {{/unless}}
+                    {{#if show_compare}}
+                        <label class="button button--small listItem-button listItem-button--compare" for="compare-{{id}}" data-tooltip="{{lang 'products.compare'}}">
+                            <span class="listItem-button-icon emthemesModez-icon-compare_arrows"></span><span class="listItem-button-text">{{lang 'products.compare'}}</span> <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
+                        </label>
+                    {{/if}}
+                    {{#if show_wishlist}}
+                        <form class="form" method="post" action="{{add_to_wishlist_url}}" data-wishlist-add>
+                            <div class="form-action">
+                                <input type="hidden" name="variation_id" value="">
+                                <button class="button listItem-button listItem-button--wishlist" type="submit" data-tooltip="{{lang 'account.wishlists.add_item'}}"><span class="listItem-button-icon emthemesModez-icon-heart"></span><span class="listItem-button-text">{{lang 'account.wishlists.add_item'}}</span></button>
+                            </div>
+                        </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

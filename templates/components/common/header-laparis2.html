@@ -1,0 +1,50 @@
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    <div class="banner">
+        {{{limit banners.top 1}}}
+    </div>
+</div>
+{{/if}}
+<header class="header header--{{theme_settings.header-style}} header--laparis2 {{#if carousel}}header--laparis2-carousel{{/if}}" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+
+    {{#if theme_settings.show_top_header}}
+    <div class="emthemesModez-header-topSection">
+        <div class="container">
+            <ul>
+                <li>{{{lang 'emthemesmodez.header.top.text1'}}}</li>
+                <li>{{{lang 'emthemesmodez.header.top.text2'}}}</li>
+                <li>{{{lang 'emthemesmodez.header.top.text3'}}}</li>
+            </ul>
+        </div>
+    </div>
+    {{/if}}
+
+    <div class="emthemesModez-header-userSection emthemesModez-header-userSection--logo-{{theme_settings.logo-position}}">
+        {{#if theme_settings.logo-position '==' 'center'}}
+            {{> components/common/navigation-left}}
+            {{> components/common/navigation-right}}
+        {{else}}
+            {{> components/common/navigation}}
+        {{/if}}
+
+        {{#if template_file '===' 'pages/home'}}
+            <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </h1>
+        {{else}}
+            <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </div>
+        {{/if}}
+
+        <div class="navPages-container" id="menu" data-menu>
+            {{> components/common/navigation-menu}}
+        </div>
+    </div>
+
+    
+
+</header>

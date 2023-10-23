@@ -1,0 +1,9 @@
+.emthemesModez-section-subHeading {
+	text-align: center;
+	margin-bottom: spacing("double");
+
+	.u-sep + &,
+	.page-heading + & {
+		margin-top: -(spacing("single") + spacing("half"));
+	}
+}

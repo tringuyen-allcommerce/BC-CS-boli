@@ -1,0 +1,35 @@
+
+<div class="emthemesModez-productsVerticalCategoriesAside-outer emthemesModez-productsVerticalCategoriesAside-outer--1">
+    <div class="emthemesModez-productsVerticalCategoriesAside emthemesModez-productsVerticalCategoriesAside--1">
+        <div class="emthemesModez-productsVerticalCategoriesAside-side">
+            <div class="sidebarBlock sidebarBlock--categories">
+                <h5 class="sidebarBlock-heading">{{lang 'category.label'}}</h5>
+                <ul class="navList-section">
+                    {{#each categories}}
+                    <li class="navList-item">
+                        <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                        {{#if children}}
+                        <ul class="navList-subSection">
+                            {{#each children}}
+                            <li class="navList-item">
+                                <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="emthemesModez-productsVerticalCategoriesAside-main">
+            {{> components/products/featured 
+                products=products.featured 
+                show_compare=theme_settings.show_product_compare
+                show_wishlist=settings.show_wishlist
+                columns=theme_settings.homepage_featured_products_column_count 
+                display_type=theme_settings.homepage_featured_products_display_type
+                hide_heading=true}}
+        </div>
+    </div>
+</div>

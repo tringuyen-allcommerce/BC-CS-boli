@@ -1,0 +1,3 @@
+{
+  "components/emthemes-modez/products/field-guide": "{{#each product_custom_fields}}\n    {{#startsWith (concat (concat \"__\" ../display_name) \"__\") name}}\n        <span class=\"emthemesModez-customField-guide\"><a href=\"{{value}}\" data-emthemesmodez-modal-content>{{#withAfter (split name \"__\") 2}}{{this}}{{/withAfter}}</a></span>\n    {{/startsWith}}\n{{/each}}\n"
+}

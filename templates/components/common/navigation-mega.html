@@ -1,0 +1,43 @@
+{{#if mega_style '!==' ' '}}
+
+    <a class="navPages-action has-subMenu" href="{{url}}" 
+        data-collapsible="navPages-{{#if type '===' 'category'}}{{id}}{{else}}page-{{@index}}{{/if}}"
+        data-collapsible-disabled-breakpoint="large"
+        data-collapsible-disabled-state="open"
+        data-collapsible-enabled-state="closed"
+        data-mega="{{type}}-{{mega_style}}">
+        {{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+        {{> components/emthemes-modez/common/navigation-label}}
+    </a>    
+
+    {{#if mega_style '===' '1'}}
+        {{> components/common/navigation-list-mega1}}
+    {{else if mega_style '===' '2'}}
+        {{> components/common/navigation-list-mega2}}
+    {{else if mega_style '===' '3'}}
+        {{> components/common/navigation-list-mega3}}
+    {{else if mega_style '===' '4'}}
+        {{> components/common/navigation-list-mega4}}
+    {{else if mega_style '===' '5'}}
+        {{> components/common/navigation-list-mega5}}
+    {{else if mega_style '===' '6'}}
+        {{> components/common/navigation-list-mega6}}
+    {{else if mega_style '===' '7'}}
+        {{> components/common/navigation-list-mega7}}
+    {{else if mega_style '===' '8'}}
+        {{> components/common/navigation-list-mega8}}
+    {{else if mega_style '===' '9'}}
+        {{> components/common/navigation-list-mega9}}
+    {{else if mega_style '===' '10'}}
+        {{> components/common/navigation-list-mega10}}
+    {{/if}}
+
+{{else}}
+
+    {{#if type '===' 'category'}}
+        {{> components/common/navigation-list}}
+    {{else}}
+        {{> components/common/navigation-page-list}}
+    {{/if}}
+
+{{/if}}

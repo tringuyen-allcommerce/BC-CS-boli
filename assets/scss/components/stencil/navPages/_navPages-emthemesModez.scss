@@ -1,0 +1,593 @@
+.navPages-container {
+    @include breakpoint("medium") {
+        background: stencilColor("navPages-rootMenu-backgroundColor");
+        border-top: 1px solid stencilColor("navPages-borderColor");
+        border-bottom: 1px solid stencilColor("navPages-borderColor");
+    }
+
+    ~ .navPages-container-overlay {
+        display: none;
+
+        @include breakpoint("medium") {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    // TURN ON DARK LAYER WHEN HOVER MENU:
+    /*
+    &:hover ~ .navPages-container-overlay {
+        @include breakpoint("medium") {
+            display: block;
+        }
+    }
+    */
+}
+
+.navPages-action {
+    font-family: stencilFontFamily("headings-font");
+    font-size: fontSize("base");
+    font-weight: fontWeight("medium");
+    text-transform: none;
+
+    @include breakpoint("medium") {
+        padding: spacing("third") spacing("single");
+    }
+
+    .navPages-item:hover > & {
+        color: stencilColor("navPages-color-hover"); // scss-lint:disable NestingDepth
+        svg {
+            fill: stencilColor("navPages-color-hover");
+            stroke: stencilColor("navPages-color-hover");
+        }
+    }
+}
+
+.navPages-item-icon {
+    font-size: fontSize("small");
+    margin-right: spacing("quarter");
+}
+
+
+
+
+.header--fixed .navPages {
+    @include breakpoint("medium") {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: layout("max") + ($container-padding * 4) + $column-gutter;
+        padding: 0;
+        position: relative;
+        width: layout("fixed");
+    }
+
+    @include breakpoint("large") {
+        padding: 0 ($container-padding * 4);
+    }
+}
+
+
+.navPages--align-left {
+    @include breakpoint("medium") {
+        text-align: left;
+    }
+}
+
+.navPages-list--right {
+    display: none;
+
+    @include breakpoint("medium") {
+        float: right;
+
+        .navPages-list + & {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: 0;
+        }
+    }
+
+    .navPages-item {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        width: 25rem;
+        max-width: none;
+    }
+
+    .dropdown-menu.is-open {
+        right: spacing("half") + spacing("quarter");
+    }
+}
+
+.navPages-list--showCart {
+    @include breakpoint("medium") {
+        display: block;
+    }
+}
+
+
+.navPages-item--cart {
+    .navPages-action {
+        padding-left: spacing("half");
+        padding-right: spacing("half");
+    }
+    .dropdown-menu.is-open {
+        left: auto;
+    }
+}
+
+.navPages-action--compare {
+    display: none;
+    font-size: fontSize("small");
+    font-weight: fontWeight("normal");
+    padding-left: spacing("half");
+    padding-right: spacing("half");
+
+    &.show {
+        display: inline-block;
+    }
+}
+
+.navPages-action--quickSearch {
+    padding-left: spacing("half");
+    padding-right: spacing("half");
+}
+
+
+
+// Sub page navigation and children of sub pages
+// -----------------------------------------------------------------------------
+.navPage-childList--text.is-open {
+    display: none;
+
+    @include breakpoint("medium") {
+        display: block;
+    }
+}
+
+
+
+// Sub menu, first level down from top level categories
+// -----------------------------------------------------------------------------
+
+.navPage-subMenu {
+    @include breakpoint("medium") {
+        // scss-lint:disable ImportantRule
+        z-index: zIndex("higher") + 5; // higher than .navUser
+        padding-top: spacing("single") + spacing("base") !important;
+        padding-bottom: spacing("single") + spacing("base") !important;
+        box-shadow: 0 2px 5px rgba(color("blacks"), 0.15);
+    }
+}
+
+.navPage-subMenu-list {
+    .navPages & {
+        @include breakpoint("medium") {
+            margin: 0 auto;
+            max-width: none;
+        }
+    }
+    .is-sticky & {
+        @include breakpoint("medium") {
+            max-height: calc(100vh - 70px);
+            overflow: auto;
+        }
+    }
+}
+
+.navPage-subMenu-list--maxCol5 {
+    .navPage-subMenu-item {
+        @include breakpoint("medium") {
+            width: 20%;
+        }
+    }
+}
+
+.navPage-subMenu-item {
+
+    &:first-child {
+        @include breakpoint("medium") {
+            display: none;
+        }
+
+    }
+
+    &:nth-child(4n+2) {
+        @include breakpoint("medium") {
+            clear: both;
+        }
+    }
+
+    .navPage-subMenu-action {
+        text-transform: capitalize;
+        @include breakpoint("medium") {
+            text-transform: capitalize;
+        }
+    }
+
+    > .navPage-subMenu-action {
+        @include breakpoint("medium") {
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.navPage-subMenu-item--banner-half-left,
+.navPage-subMenu-item--banner-half-right {
+    @include breakpoint("medium") {
+        width: 50%;
+
+        .navPages-action {
+            padding: 0;
+        }
+
+        > .navPage-subMenu-action {
+            border-bottom: 0;
+        }
+    }
+}
+
+.navPage-subMenu-item--banner-half-right {
+    @include breakpoint("medium") {
+        float: right;
+    }
+}
+
+
+
+.navPage-subMenu-action {
+    @include breakpoint("medium") {
+        font-weight: fontWeight("semibold");
+        color: stencilColor("navPages-subMenu-color");
+        padding-left: 0;
+        padding-right: 0;
+
+        &:hover {
+            color: stencilColor("navPages-subMenu-color-hover");
+        }
+
+        &.has-subMenu {
+            padding-bottom: 0;
+        }
+    }
+}
+
+
+.emthemesModez-navPage-label {
+    font-size: fontSize("smallest");
+    font-weight: fontWeight("medium");
+    background-color: stencilColor("navPages-label-backgroundColor");
+    color: stencilColor("navPages-label-color");
+    display: inline-block;
+    padding: spacing("eighth") spacing("half");
+    text-transform: uppercase;
+    vertical-align: middle;
+    position: relative;
+    margin-left: spacing("single");
+
+    &:before {
+        $n: (remCalc(fontSize("smallest")) * lineHeight("base") + spacing("eighth") * 2) / 2;
+        content: ' ';
+        font-size: 0;
+        position: absolute;
+        border-right: $n solid stencilColor("navPages-label-backgroundColor");
+        border-top: $n solid transparent;
+        border-bottom: $n solid transparent;
+        left: -($n);
+        top: 0; 
+    }
+}
+
+
+
+
+//
+// Child pages of sub pages navigation lists
+// -----------------------------------------------------------------------------
+
+.navPage-childList-action {
+    @include breakpoint("medium") {
+        font-family: stencilFontFamily("body-font");
+        font-weight: stencilFontWeight("body-font");
+        color: stencilColor("navPages-childMenu-color");
+        padding: 0;
+
+        &:hover {
+            color: stencilColor("navPages-childMenu-color-hover");
+        }
+    }
+}
+
+
+//
+// Quick search inside the mobile nav
+// -----------------------------------------------------------------------------
+
+.navPages-quickSearch {
+    border-color: stencilColor("navPages-subMenu-separatorColor");
+}
+
+
+
+
+
+// ============================================================================
+// Variations
+// ============================================================================
+
+//
+// Mega menu default
+// ----------------------------------------------------------------------------
+.navPage-subMenu--default {
+    > .navPage-subMenu-list {
+        @include breakpoint("medium") {
+            column-count: 4;
+        }
+        @include breakpoint("large") {
+            column-count: 5;
+        }
+    }
+    .navPage-subMenu-item {
+        width: 100%;
+    }
+}
+
+//
+// Mega menu dropdown 2
+// ----------------------------------------------------------------------------
+
+.navPage-subMenu--mega2 {
+
+    &.is-open {
+        @include breakpoint("medium") {
+            display: flex;
+        }
+    }
+
+    .navPage-subMenu-list {
+        @include breakpoint("medium") {
+            flex: 1 0 50%;
+        }
+    }
+
+    .navPage-subMenu-banner-list {
+        @include grid-row($behavior: "nest");
+        font-size: 0;
+        display: none;
+
+        @include breakpoint("medium") {
+            display: block;
+            flex: 1 0 50%;
+        }
+    }
+
+    .navPage-subMenu-banner-item {
+        @include grid-column(12, $float: none);
+        display: inline-block;
+        font-size: fontSize("base"); // 1
+        vertical-align: top;
+        text-align: center;
+
+        @include breakpoint("medium") {
+            width: grid-calc(6, $total-columns);
+        }
+    }
+
+    .navPage-subMenu-item {
+        @include breakpoint("medium") {
+            width: 50%;
+        }
+
+        &:nth-child(2n+2) {
+            @include breakpoint("medium") {
+                clear: both;
+            }
+        }
+    }
+}
+
+
+//
+// Mega menu dropdown 3
+// ----------------------------------------------------------------------------
+
+.navPage-subMenu--mega3 {
+
+    &.is-open {
+        @include breakpoint("medium") {
+            display: flex;
+        }
+    }
+
+    .navPage-subMenu-list {
+        @include breakpoint("medium") {
+            flex: 1 0 60%;
+        }
+    }
+
+    .navPage-subMenu-banner-list {
+        @include grid-row($behavior: "nest");
+        font-size: 0;
+        display: none;
+
+        @include breakpoint("medium") {
+            display: block;
+            flex: 1 0 40%;
+        }
+    }
+
+    .navPage-subMenu-banner-item {
+        @include grid-column(12, $float: none);
+        display: inline-block;
+        font-size: fontSize("base"); // 1
+        vertical-align: top;
+        text-align: center;
+
+        @include breakpoint("medium") {
+            width: grid-calc(6, $total-columns);
+        }
+    }
+
+    .navPage-subMenu-item {
+        @include breakpoint("medium") {
+            width: grid-calc(4, $total-columns);
+        }
+
+        &:nth-child(4n+2) {
+            @include breakpoint("medium") {
+                clear: none;
+            }
+        }
+
+        &:nth-child(3n+2) {
+            @include breakpoint("medium") {
+                clear: both;
+            }
+        }
+    }
+}
+
+
+//
+// Mega menu dropdown 4
+// ----------------------------------------------------------------------------
+
+.navPage-subMenu--mega4 {
+
+    &.is-open {
+        @include breakpoint("medium") {
+            display: flex;
+        }
+    }
+
+    .navPage-subMenu-list {
+        @include breakpoint("medium") {
+            flex: 1 0 60%;
+        }
+    }
+
+    .navPage-subMenu-staticContent {
+        display: none;
+        font-size: fontSize("base");
+
+        @include breakpoint("medium") {
+            display: block;
+            flex: 1 0 40%;
+        }
+    }
+
+    .navPage-subMenu-staticContent-heading {
+        font-family: stencilFontFamily("headings-font");
+        font-size: fontSize("larger");
+        margin-bottom: spacing("half");
+    }
+
+    .navPage-subMenu-staticContent-content {
+        color: stencilColor("navPages-childMenu-color");
+    }
+
+    .navPage-subMenu-banner-item {
+        @include grid-column(12, $float: none);
+        display: inline-block;
+        font-size: fontSize("base"); // 1
+        vertical-align: top;
+        text-align: center;
+
+        @include breakpoint("medium") {
+            width: grid-calc(6, $total-columns);
+        }
+    }
+
+    .navPage-subMenu-item {
+        @include breakpoint("medium") {
+            width: grid-calc(4, $total-columns);
+        }
+
+        &:nth-child(4n+2) {
+            @include breakpoint("medium") {
+                clear: none;
+            }
+        }
+
+        &:nth-child(3n+2) {
+            @include breakpoint("medium") {
+                clear: both;
+            }
+        }
+    }
+}
+
+
+//
+// Mega menu dropdown 5
+// ----------------------------------------------------------------------------
+
+.navPage-subMenu--mega5 {
+
+    .navPage-subMenu-item {
+        @include breakpoint("medium") {
+            width: 20%;
+        }
+
+        &:nth-child(4n+2) {
+            @include breakpoint("medium") {
+                clear: none;
+            }
+        }
+
+        &:nth-child(5n+2) {
+            @include breakpoint("medium") {
+                clear: both;
+            }
+        }
+    }
+
+    .navPage-subMenu-banner {
+        margin-bottom: spacing("half");
+    }
+}
+
+
+// Sticky header
+// ----------------------------------------------------------------------------
+
+.is-sticky {
+    .navPages {
+        @include breakpoint("medium") {
+            max-width: none;
+            padding-left: spacing("single") * 6;
+            padding-right: spacing("single") * 6;
+        }
+    }
+
+    .navPages-list--right {
+        @include breakpoint("medium") {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+        }
+
+        .navPages-item-icon {
+            margin-right: 0;
+        }
+
+        .dropdown-menu.is-open {
+            right: 0;
+        }
+    }
+
+    .navPages-item-searchLabel {
+        display: none;
+    }
+
+    .navPages-item-cartLabel { 
+        display: none;
+    }
+}

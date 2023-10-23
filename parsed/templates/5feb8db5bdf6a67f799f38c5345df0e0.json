@@ -1,0 +1,3 @@
+{
+  "components/papa-parallaxbag/sections/section-free-shipping-return": "<div class=\"emthemesModez-section emthemesModez-section--parallaxbag-freeShippingReturn\">\n\t<div class=\"parallaxbag-freeShippingReturnSection container\">\n\t\t<h2 class=\"page-heading\">{{{lang 'parallaxbag.free_shipping_return.heading'}}}</h2>\n\t\t<p class=\"description\">{{{lang 'parallaxbag.free_shipping_return.text'}}}</p>\n\t</div>\n</div>\n"
+}

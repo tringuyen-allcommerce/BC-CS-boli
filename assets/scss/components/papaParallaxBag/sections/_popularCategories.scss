@@ -1,0 +1,62 @@
+.parallaxbag-popularCategoriesSection {
+	margin-bottom: spacing("single") * 4;
+	
+	.page-heading {
+		font-size: fontSize("largest");
+	}
+}
+
+.parallaxbag-popularCategoriesSection-columns {
+	@include breakpoint("small") {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		margin: 0 (-($column-gutter / 2));
+	}	
+}
+
+.parallaxbag-popularCategoriesSection-column {
+	@include breakpoint("small") {
+		flex: 1 0 width("4/12");
+		padding: 0 $column-gutter / 2;
+	}
+
+	&:nth-child(3) ~ & {
+		margin-top: spacing("double");
+	}
+}
+
+
+.parallaxbag-popularCategoriesSection-categoryName {
+	font-size: fontSize("larger");
+	text-transform: uppercase;
+	border-bottom: container("border");
+	padding-bottom: spacing("base");
+	margin-bottom: spacing("single");
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.parallaxbag-popularCategoriesSection-subcategories {
+	@include u-listBullets("none");
+}
+
+.parallaxbag-popularCategoriesSection-subcategories-item {
+	font-family: stencilFontFamily("headings-font");
+	font-size: fontSize("small");
+	text-transform: uppercase;
+	margin-bottom: spacing("half");
+
+	a {
+		color: lighten($color-textBase, 20%);
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			font-weight: fontWeight("bold");
+			color: $color-textBase;
+		}
+	}
+}

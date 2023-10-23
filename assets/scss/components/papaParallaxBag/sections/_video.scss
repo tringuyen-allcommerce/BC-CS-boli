@@ -1,0 +1,62 @@
+.emthemesModez-section--parallaxbag-video {
+	width: 100vw;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	background: transparent;
+
+	.layout-boxed-1280 & {
+		width: auto;
+		margin-left: auto;
+		transform: none;
+	}
+}
+
+.parallaxbag-videoSection {
+	color: color("whites");
+	
+	margin-bottom: spacing("single") * 4;
+
+	&,
+	&.container {
+		padding-top: spacing("single") * 4;
+		padding-bottom: spacing("single") * 4;
+	}
+
+	.page-heading {
+		font-family: stencilFontFamily("altHeadings-font");
+		font-size: fontSize("largest") * 1.5;
+		text-transform: uppercase;
+		margin: 0;
+		color: inherit;
+
+		&:after {
+			content: ' ';
+			display: block;
+			margin: spacing("half") auto 0;
+			width: 100%;
+			font-size: 0;
+			height: 0;
+			border-bottom: container("border");
+
+			@include breakpoint("medium") {
+				width: 500px;
+			}
+		}
+	}
+
+	.page-subheading {
+		text-align: center;
+		font-size: fontSize("larger");
+		text-transform: uppercase;
+		margin: spacing("single") 0 0;
+		color: inherit;
+	}
+
+}
+
+.parallaxbag-videoSection-video {
+	text-align: center;
+	margin: spacing("double") 0;
+	max-width: 100%;
+	overflow: hidden;
+}

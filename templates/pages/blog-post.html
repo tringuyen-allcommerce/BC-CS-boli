@@ -1,0 +1,30 @@
+---
+products:
+    new:
+        limit: 5
+blog:
+    recent_posts:
+        limit: 3
+---
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<div class="page">
+
+    <aside class="page-sidebar">
+        {{> components/emthemes-modez/blog/sidebar}}
+    </aside>
+
+    <main class="page-content">
+        {{> components/blog/post post=blog.post show_tags=true}}
+
+		<div class="emthemesModez-blog-bottomSection">
+        	{{> components/emthemes-modez/blog/featured posts=blog.recent_posts}}
+        </div>
+    </main>
+
+</div>
+
+{{/partial}}
+{{> layout/base}}

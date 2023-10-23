@@ -1,0 +1,64 @@
+.emthemesModez-section--parallaxbag-newStyleFashion {
+	width: 100vw;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	background: transparent center center;
+	background-size: cover;
+
+	.layout-boxed-1280 & {
+		width: auto;
+		margin-left: auto;
+		transform: none;
+	}
+}
+
+.parallaxbag-newStyleFashionSection {
+	color: color("whites");
+	
+	margin-bottom: spacing("single") * 4;
+
+	&,
+	&.container {
+		padding-top: 0;
+		padding-bottom: 0;
+
+		@include breakpoint("medium") {
+			padding-top: spacing("single");
+			padding-bottom: spacing("single");
+		}
+
+		@include breakpoint("large") {
+			padding-top: spacing("single") * 3;
+			padding-bottom: spacing("single") * 3;
+		}
+
+
+		@include breakpoint("xxlarge") {
+			padding-top: spacing("single") * 10;
+			padding-bottom: spacing("single") * 10;
+		}
+	}
+}
+
+.parallaxbag-newStyleFashionSection-img {
+	img {
+		transform: scale(0.5);
+		transform-origin: left;
+
+		@include breakpoint("medium") {
+			transform: scale(0.75);
+		}
+
+		@include breakpoint("xxlarge") {
+			transform: none;
+		}
+	}
+
+	@include breakpoint("small") {
+		margin-left: spacing("single") * 3;
+	}
+
+	@include breakpoint("large") {
+		margin-left: 0;
+	}
+}

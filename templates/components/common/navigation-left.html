@@ -1,0 +1,14 @@
+<div class="navUser navUser--left navUser--hasQuickSearch">
+    <div class="quick-search-normal">
+        <a class="navUser-action navUser-action--quickSearch" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
+            <span class="navUser-item-icon navUser-item-searchIcon emthemesModez-icon-linear-magnifier"></span>
+            <span class="navUser-item-searchLabel">{{lang 'common.search'}}</span>
+        </a>
+    </div>
+    <div class="quick-search-visible">
+        {{> components/emthemes-modez/search/quick-search-form}}
+    </div>
+    <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+        {{> components/common/quick-search}}
+    </div>
+</div>

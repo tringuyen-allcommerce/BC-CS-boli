@@ -1,0 +1,110 @@
+<div class="productView-bundleProducts-item">
+    <form class="productView-bundleProducts-form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add>
+        <div class="productView-bundleProducts-col productView-bundleProducts-col--img">
+            <a href="{{product.url}}" target="_blank" class="productView-bundleProducts-image-container"><img src="{{getImage product.main_image 'thumb_size' (cdn theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}"></a>
+        </div>
+        <div class="productView-bundleProducts-col productView-bundleProducts-col--name">
+            <div class="productView-bundleProducts-col-wrap">
+                <a href="{{product.url}}" target="_blank">{{{product.title}}}</a>
+                <div class="productView-options productView-options--{{theme_settings.product_options_column}}col {{#all (unless product.options.length) (unless product.event_date)}} productView-options--empty{{/all}}">
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="product_id" value="{{product.id}}" />
+        
+                    <div class="papathemes-productView-optionsGrid">
+                        <div data-product-option-change style="display:none;">
+                            {{#each product.options}}
+                                {{{dynamicComponent 'components/products/options'}}}
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{#if product.event_date}}
+                        <div class="form-field">
+                            <label class="form-label form-label--alternate form-label--inlineSmall">
+                                {{product.event_date.name}}:
+                                <small>{{lang 'common.required'}}</small>
+                            </label>
+                            <select class="form-select form-select--date" name="EventDate[Mth]" required>
+                                <option value="">{{lang 'common.month'}}</option>
+                                {{#enumerate 1 12}}
+                                    <option value="{{this}}">{{getShortMonth this}}</option>
+                                {{/enumerate}}
+                            </select>
+                            <select class="form-select form-select--date" name="EventDate[Day]" required>
+                                <option value="">{{lang 'common.day'}}</option>
+                                {{#enumerate 1 31}}
+                                    <option value="{{this}}">{{this}}</option>
+                                {{/enumerate}}
+                            </select>
+                            <select class="form-select form-select--date" name="EventDate[Yr]" required>
+                                <option value="">{{lang 'common.year'}}</option>
+                                {{#enumerate product.event_date.earliest_year product.event_date.latest_year}}
+                                    <option value="{{this}}">{{this}}</option>
+                                {{/enumerate}}
+                            </select>
+                        </div>
+                    {{/if}}
+                </div>
+                <div class="alertBox productAttributes-message" style="display:none">
+                    <div class="alertBox-column alertBox-message"></div>
+                </div>
+            </div>
+        </div>
+        <div class="productView-bundleProducts-col productView-bundleProducts-col--price">
+            <div class="productView-bundleProducts-col-wrap">
+                {{#if product.sku}}
+                    <div class="productView-bundleProducts-sku">
+                        <strong class="productView-bundleProducts-sku-name">{{lang 'products.sku'}}</strong>
+                        <span class="productView-bundleProducts-sku-value" data-product-sku>{{product.sku}}</span>
+                    </div>
+                {{/if}}
+                {{#if product.pre_order}}
+                    <div class="card-text--preOrder">{{lang 'products.pre_order'}}</div>
+                {{else if product.stock_level '===' 0}}
+                    <div class="outstock">Out of Stock</div>
+                {{else}}
+                    {{#if product.can_purchase}}
+                        <div class="instock">In Stock</div>
+                    {{else}}
+                        <div class="outstock">Out of Stock</div>
+                    {{/if}}
+                {{/if}}
+                {{> components/products/price price=product.price}}
+            </div>
+        </div>
+        <div class="productView-bundleProducts-col productView-bundleProducts-col--qty">
+            {{#if product.can_purchase}}
+                <div class="form-field form-field--increments">
+                    <div class="form-increment" data-quantity-change>
+                        <button class="button button--icon" data-action="dec">
+                            <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                            <i class="icon" aria-hidden="true">
+                                <svg>
+                                    <use xlink:href="#icon-keyboard-arrow-down"/>
+                                </svg>
+                            </i>
+                        </button>
+                        <input class="form-input form-input--incrementTotal" name="qty[]" type="tel" value="1" data-bundle-products-price-qty="{{product.price.without_tax.value}}" data-quantity-min="{{product.min_purchase_quantity}}" data-quantity-max="{{product.max_purchase_quantity}}" min="1" pattern="[0-9]*" aria-live="polite"{{#unless product.can_purchase}} disabled="disabled"{{/unless}} />
+                        <button class="button button--icon" data-action="inc">
+                            <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                            <i class="icon" aria-hidden="true">
+                                <svg>
+                                    <use xlink:href="#icon-keyboard-arrow-up"/>
+                                </svg>
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+        <div class="productView-bundleProducts-col productView-bundleProducts-col--action">
+            <div class="productView-bundleProducts-col-wrap">
+                {{#if product.can_purchase}}
+                    <input type="submit" id="form-action-addToCart" class="button button--small button--primary" data-wait-message="{{lang 'bundle_product.adding_to_cart'}}" data-added-message="{{lang 'bundle_product.added_to_cart'}}" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'bundle_product.add_to_cart'}}{{/if}}" />
+                {{/if}}
+                {{#if product.out_of_stock }}
+                    <a href="{{product.url}}" class="button button--small button--primary">{{product.out_of_stock_message}}</a>
+                {{/if}}
+            </div>
+        </div>
+    </form>
+</div>

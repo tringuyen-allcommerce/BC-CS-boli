@@ -1,0 +1,47 @@
+.form-label--alternate {
+	text-transform: uppercase;
+	font-size: fontSize("base");
+	font-weight: fontWeight("medium");
+
+	[data-option-value] {
+		color: $color-textSecondary;
+		text-transform: none;
+		margin-left: spacing("quarter");
+	}
+}
+
+.form-option { 
+	border: 1px solid rgba($input-border-color, 0.3);
+}
+
+.form-radio:checked + .form-option {
+	border: 1px solid $input-border-color;
+}
+
+
+.form-increment {
+	display: inline-block;
+	border-top: 1px solid $input-border-color;
+	border-bottom: 1px solid $input-border-color;
+
+	.button {
+		border-top: 0;
+		border-bottom: 0;
+		border-color: $input-border-color;
+		padding: spacing("third");
+	}
+}
+
+
+.form-input--incrementTotal {
+	width: spacing("single") * 3;
+}
+
+.emthemesModez-requiredMark {
+	font-size: 0 !important;
+	&:before {
+		content: '*';
+		font-size: fontSize("base");
+		color: #ff0000;
+	}
+}

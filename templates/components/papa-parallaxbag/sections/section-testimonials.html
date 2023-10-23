@@ -1,0 +1,28 @@
+<div class="emthemesModez-section emthemesModez-section--parallaxbag-testimonial">
+	<div class="parallabag-testimonialSection">
+		{{#if (lang 'parallaxbag.testimonials.heading') '!==' ' '}}
+		<h2 class="page-heading">Testimonials</h2>
+		{{/if}}
+		<div class="parallabag-testimonialSection-carousel" data-slick='{
+			"dots": false,
+			"infinite": false,
+			"mobileFirst": true,
+			"slidesToShow": 1,
+			"slidesToScroll": 1
+		}'>
+			{{#for 1 5}}
+				{{#if (lang (concat 'parallaxbag.testimonials.text_' $index)) '!==' ' '}}
+					<div class="parallabag-testimonialSection-item">
+						<div class="parallabag-testimonialSection-image"><img src="{{lang (concat 'parallaxbag.testimonials.img_' $index)}}" alt="{{lang (concat 'parallaxbag.testimonials.author_' $index)}}" /></div>
+						<div class="parallabag-testimonialSection-authorGroup">
+							<span class="parallabag-testimonialSection-author">{{lang (concat 'parallaxbag.testimonials.author_' $index)}}</span>
+							<span class="parallabag-testimonialSection-separator">/</span>
+							<span class="parallabag-testimonialSection-position">{{lang (concat 'parallaxbag.testimonials.position_' $index)}}</span>
+						</div>
+						<div class="parallabag-testimonialSection-text">{{{lang (concat 'parallaxbag.testimonials.text_' $index)}}}</div>
+					</div>
+				{{/if}}
+			{{/for}}
+		</div>
+	</div>
+</div>

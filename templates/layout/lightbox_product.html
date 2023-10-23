@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="no-js theme-style-{{theme_settings.theme_variation}} template-{{#replace '/' template}}-{{/replace}}{{#if theme_settings.hide_page_heading}} hide-page-heading{{/if}} layout-{{theme_settings.page_width}}" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        {{{stylesheet '/assets/css/theme.css'}}}
+        {{{stylesheet '/assets/vendor/animate.css'}}}
+        {{ getFontsCollection }}
+        <script src="{{cdn '/assets/modernizr-custom.js'}}"></script>
+
+        {{{head.scripts}}}
+        <!-- added for jam prj -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="{{cdn '/assets/js/jam.js'}}"></script>
+
+        {{{head.rsslinks}}}
+
+        {{inject 'themeSettings' theme_settings}}
+        {{inject 'genericError' (lang 'common.generic_error')}}
+        {{inject 'maintenanceMode' settings.maintenance}}
+        {{inject 'urls' urls}}
+        {{{snippet 'htmlhead'}}}
+    </head>
+    <body class="jam" oncopy="return false" oncut="return false" onpaste="return false" ondragstart="return false;">
+        {{{snippet 'header'}}}
+        <div class="icons-svg-sprite">{{> components/common/icons/icon-defs }}</div>
+
+        {{#if settings.privacy_cookie}}
+            {{> components/common/cookie}}
+        {{/if}}
+
+        {{#if theme_settings.theme_variation '==' 'laparis2'}}
+            {{> components/common/header-laparis2}}
+        {{else}}
+            {{> components/common/header}}
+        {{/if}}
+
+        {{> components/common/body }}
+        {{> components/common/footer }}
+
+        <script src="{{cdn '/assets/js/bundle.js'}}"></script>
+        <script>
+            // Exported in app.js
+            window.stencilBootstrap("{{template_file}}", {{jsContext}}).load();
+        </script>
+
+        {{{footer.scripts}}}
+        {{{snippet 'footer'}}}
+    </body>
+</html>

@@ -1,0 +1,26 @@
+// ============================================================================
+// Text Block section
+// ============================================================================
+
+.emthemesModez-textBlock {
+	text-align: center;
+	margin-bottom: spacing("single") * 4;
+
+	&:first-child {
+		margin-top: spacing("single") * 4;
+	}
+}
+
+.emthemesModez-textBlock-heading {
+	font-size: fontSize("largest") * 2;
+	text-transform: uppercase;
+}
+
+.emthemesModez-textBlock-content {
+	font-size: fontSize("larger");
+	text-transform: uppercase;
+}
+
+.emthemesModez-textBlock-buttons {
+	margin-top: spacing("single") + spacing("half");
+}

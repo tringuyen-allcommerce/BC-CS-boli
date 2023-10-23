@@ -1,0 +1,42 @@
+<div class="emthemesModez-specialProductsTabs{{#if style}} emthemesModez-specialProductsTabs--{{style}}{{/if}}">
+    <ul class="tabs" id="emthemesModez-specialProductsTabs-tabs" data-tab role="tablist">
+        <li class="tab is-active" role="presentation"><a class="tab-title" href="#tab-featured-products" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-featured-products">{{lang 'products.featured' }}</a></li>
+        <li class="tab" role="presentation"><a class="tab-title" href="#tab-bestselling-products" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-bestselling-products">{{lang 'products.top' }}</a></li>
+        <li class="tab" role="presentation"><a class="tab-title" href="#tab-new-products" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-new-products">{{lang 'products.new' }}</a></li>
+    </ul>
+    <div class="tabs-contents">
+        <section role="tabpanel" aria-hidden="false" class="tab-content is-active" id="tab-featured-products">
+            {{#if products.featured}}
+                {{> components/products/featured 
+                    products=(limit products.featured theme_settings.specialProductsTab_products_count)
+                    show_compare=theme_settings.show_product_compare
+                    show_wishlist=settings.show_wishlist
+                    columns=theme_settings.homepage_featured_products_column_count 
+                    hide_heading=true 
+                    display_type='grid'}}
+            {{/if}}
+        </section>
+        <section role="tabpanel" aria-hidden="true" class="tab-content" id="tab-bestselling-products">
+            {{#if products.top_sellers}}
+                {{> components/products/top 
+                    products=(limit products.top_sellers theme_settings.specialProductsTab_products_count)
+                    show_compare=theme_settings.show_product_compare
+                    show_wishlist=settings.show_wishlist
+                    columns=theme_settings.homepage_top_products_column_count 
+                    hide_heading=true 
+                    display_type='grid'}}
+            {{/if}}
+        </section>
+        <section role="tabpanel" aria-hidden="true" class="tab-content" id="tab-new-products">
+            {{#if products.new}}
+                {{> components/products/new 
+                    products=(limit products.new theme_settings.specialProductsTab_products_count)
+                    show_compare=theme_settings.show_product_compare
+                    show_wishlist=settings.show_wishlist
+                    columns=theme_settings.homepage_new_products_column_count 
+                    hide_heading=true 
+                    display_type='grid'}}
+            {{/if}}
+        </section>
+    </div>
+</div>

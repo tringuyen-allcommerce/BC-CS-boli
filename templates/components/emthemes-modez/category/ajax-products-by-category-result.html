@@ -1,0 +1,9 @@
+<div class="emthemesModez-productsByCategory-products">
+	<ul class="productGrid productGrid--maxCol2">
+	    {{#each (limit category.products 4)}}
+	    <li class="product">
+	        {{>components/products/card show_compare=false show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer}}
+	    </li>
+	    {{/each}}
+	</ul>
+</div>

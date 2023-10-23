@@ -1,0 +1,13 @@
+{{> components/products/card
+    product
+    product=product
+    name=product.title
+    image=product.main_image
+    theme_settings=theme_settings
+    customer=customer
+    show_rating=settings.show_product_rating
+    show_cart_action=true
+    has_options=product.options.length
+    add_to_cart_url=(concat (concat product.cart_url '?action=add&product_id=') product.id)
+}}
+{{{JSONstringify product}}}

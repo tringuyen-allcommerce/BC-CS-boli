@@ -1,0 +1,33 @@
+.parallaxbag-newsletterSection {
+	border: container("border");
+	padding: spacing("double") spacing("single");
+	margin-bottom: spacing("single") * 4;
+
+	.page-heading {
+		font-size: fontSize("largest");
+		margin-top: -(remCalc(fontSize("largest") * lineHeight("base") / 2)) - spacing("double");
+		margin-bottom: spacing("single");
+
+		span {
+			padding: 0 spacing("single") + spacing("half");
+			background-color: container("fill");
+		}
+	}
+
+	.description {
+		text-align: center;
+	}
+
+	.form {
+		margin-bottom: 0;
+	}
+
+	.form-fieldset {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.form-field {
+		margin-bottom: 0;
+	}
+}

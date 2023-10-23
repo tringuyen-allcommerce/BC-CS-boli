@@ -1,0 +1,131 @@
+.heroCarousel {
+    padding: 0 container("padding");
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:spacing("base") * 2.5;
+
+    .js & {
+        opacity: 1;
+        max-height: none;
+    }
+
+    // When layout is boxed
+    .layout-boxed-1280 &:not(.heroCarousel--stretch) {
+        max-width: layout("max") + ($container-padding * 4);
+        margin-top: 0;
+
+        @include breakpoint("large") {
+            padding: 0 ($container-padding * 4);
+        }
+    }
+
+    .slick-prev,
+    .slick-next {
+        background-color: transparent;
+        visibility: hidden;
+
+        @include breakpoint("medium") {
+            visibility: visible;
+        }
+
+        &:hover {
+            background-color: rgba(stencilColor("carousel-arrow-bgColor"), 0.9);
+        }
+    }
+
+    .slick-dots {
+        position: absolute;
+        li {
+            background-color: transparent;
+        }
+    }
+}
+
+.heroCarousel-image, .heroCarousel-mobileImage {
+    width: 100%;
+}
+
+.heroCarousel-mobileImage {
+    + .heroCarousel-image {
+        display: none;
+    }
+    @include breakpoint("small") {
+        display: none !important;
+        + .heroCarousel-image {
+            display: block;
+        }
+    }
+}
+
+.heroCarousel--stretch {
+    padding: 0;
+    max-width: none;
+
+    @include breakpoint("large") {
+        width: 100vw;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.js {
+    .heroCarousel-slide + .heroCarousel-slide {
+        opacity: 0;
+        max-height: 0;
+    }
+
+    .slick-initialized .heroCarousel-slide + .heroCarousel-slide {
+        opacity: 1;
+        max-height: none;
+    }
+}
+
+.heroCarousel-content {
+    @include breakpoint("medium") {
+        background-color: rgba($carousel-bgColor, stencilNumber("carousel-bgColor-opacity"));
+    }
+}
+
+
+
+// 
+// Make position of carousel description text of each slide 
+// to left or right depends on theme settings
+// 
+@include breakpoint("medium") {
+    @for $i from 0 through 5 {
+        @if stencilString("carousel-slide" + #{$i} + "-position") == "left" {
+            .heroCarousel-slide--#{$i} .heroCarousel-content {
+                transform: translate3d(-50%, -50%, 0);
+            }
+        }
+        @else if stencilString("carousel-slide" + #{$i} + "-position") == "right" {
+            .heroCarousel-slide--#{$i} .heroCarousel-content {
+                transform: translate3d(50%, -50%, 0);
+            }
+        }
+    }
+}
+
+
+
+
+.heroCarousel-title {
+    font-size: fontSize("largest");
+    font-weight: fontWeight("semibold");
+    text-transform: uppercase;
+
+    @include breakpoint("medium") {
+        font-size: fontSize("largest") * 2.5;
+    }
+}
+
+.heroCarousel-description {
+    margin-bottom: spacing("half");
+
+    @include breakpoint("medium") {
+        font-size: fontSize("largest");
+        letter-spacing: letterSpacing("largest");
+        margin-bottom: spacing("single");
+    }
+}

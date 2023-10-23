@@ -1,0 +1,59 @@
+{{#if children}}
+<a class="navPages-action has-subMenu" href="{{url}}" 
+    data-collapsible="navPages-{{id}}"
+    data-collapsible-disabled-breakpoint="large"
+    data-collapsible-disabled-state="open"
+    data-collapsible-enabled-state="closed">
+    {{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+    {{> components/emthemes-modez/common/navigation-label}}
+</a>
+<div class="navPage-subMenu navPage-subMenu--default" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list">
+        {{#if (lang (concat 'emthemesmodez.megamenu.style_' id)) '==' 'banner-half-left'}}
+            <li class="navPage-subMenu-item navPage-subMenu-item--banner-half-left">
+                <a class="navPage-subMenu-action navPages-action" href="{{url}}"><img src="{{lang (concat 'emthemesmodez.megamenu.cat_image_' id)}}" alt="{{name}}"></a>
+            </li>
+        {{else if (lang (concat 'emthemesmodez.megamenu.style_' id)) '==' 'banner-half-right'}}
+            <li class="navPage-subMenu-item navPage-subMenu-item--banner-half-right">
+                <a class="navPage-subMenu-action navPages-action" href="{{url}}"><img src="{{lang (concat 'emthemesmodez.megamenu.cat_image_' id)}}" alt="{{name}}"></a>
+            </li>
+        {{else}}
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+            {{#if (lang (concat 'emthemesmodez.megamenu.style_' id)) '==' 'banner-quarter'}}
+            <div class="navPage-childList navPage-childList--text is-open">
+                <a href="{{url}}"><img src="{{lang (concat 'emthemesmodez.megamenu.cat_image_' id)}}" alt="{{name}}"></a>
+            </div>
+            {{/if}}
+        </li>
+        {{/if}}
+        {{#each children}}
+            <li class="navPage-subMenu-item">
+                {{#if children}}
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="{{url}}"
+                        data-collapsible="navPages-{{id}}"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed">
+                        {{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                        {{> components/emthemes-modez/common/navigation-label}}
+                    </a>
+                    <ul class="navPage-childList" id="navPages-{{id}}">
+                        {{#each children}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</div>
+{{else}}
+<a class="navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+{{/if}}

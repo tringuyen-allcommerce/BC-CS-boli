@@ -1,0 +1,35 @@
+<section class="emthemesModez-videoBlock">
+	
+	<div class="emthemesModez-videoBlock-videoContainer">
+		{{#if image}}{{#if image '!=' ' '}}
+		<a href="#" data-emthemesmodez-video-toggle="emthemesModez-videoBlock-player-{{index}}" class="emthemesModez-videoBlock-toggle"><img class="emthemesModez-videoBlock-image" src="{{image}}" alt="{{heading}}" title="{{heading}}" /></a>
+		{{/if}}{{/if}}
+		<iframe
+			id="emthemesModez-videoBlock-player-{{index}}"
+			class="emthemesModez-videoBlock-player {{#if image}}{{#if image '!=' ' '}}emthemesModez-videoBlock-player--hide{{/if}}{{/if}}"
+		    width="870"
+		    height="500"
+		    frameborder="0"
+		    webkitAllowFullScreen
+		    mozallowfullscreen
+		    allowFullScreen
+		    src="//www.youtube.com/embed/{{youtube}}">
+		</iframe>
+	</div>
+
+	<div class="emthemesModez-videoBlock-textContainer">
+		{{#if heading}}{{#if heading '!=' ' '}}
+		<h2 class="emthemesModez-videoBlock-heading">{{{heading}}}</h2>
+		{{/if}}{{/if}}
+
+		{{#if content}}{{#if content '!=' ' '}}
+		<div class="emthemesModez-videoBlock-content">{{{content}}}</div>
+		{{/if}}{{/if}}
+
+		{{#if button}}{{#if button '!=' ' '}}
+		<div class="emthemesModez-videoBlock-buttons">
+			<a class="button button--primary" href="{{link}}">{{{button}}}</a>
+		</div>
+		{{/if}}{{/if}}
+	</div>
+</section>

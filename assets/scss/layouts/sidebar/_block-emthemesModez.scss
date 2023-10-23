@@ -1,0 +1,19 @@
+.sidebarBlock + .sidebarBlock {
+    border-top: 0;
+    margin-top: spacing("single") * 2;
+    padding-top: 0;
+}
+
+.sidebarBlock-heading {
+	font-size: fontSize("larger");
+	text-transform: uppercase;
+	border-bottom: 1px dotted container("borderColor", "dark");
+	padding-bottom: spacing("half");
+	margin-bottom: spacing("single");
+}
+
+.sidebarBlock--categories {
+	.navList-action {
+		text-transform: uppercase;
+	}
+}

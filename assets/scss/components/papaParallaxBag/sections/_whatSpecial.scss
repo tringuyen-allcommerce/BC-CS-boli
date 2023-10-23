@@ -1,0 +1,78 @@
+.parallabag-whatSpecialSection {
+	padding: spacing("single") + spacing("half") 0 0;
+
+	.page-heading {
+		font-family: stencilFontFamily("altHeadings-font");
+		font-size: fontSize("largest") * 1.5;
+		text-transform: uppercase;
+		margin: 0;
+
+		&:after {
+			content: ' ';
+			display: block;
+			margin: spacing("quarter") auto 0;
+			width: 100%;
+			font-size: 0;
+			height: 0;
+			border-bottom: container("border", "dark");
+
+			@include breakpoint("medium") {
+				width: 500px;
+			}
+		}
+	}
+
+	.page-subheading {
+		text-align: center;
+		font-size: fontSize("largest");
+		text-transform: uppercase;
+		margin: spacing("base") 0 0;
+	}
+
+	.emthemesModez-bannersContainer {
+		margin-top: spacing("double");	
+	}
+}
+
+.emthemesModez-banner--parallaxbag-whatSpecial {
+
+	@include breakpoint("small") {
+		width: width("4/12");
+	}
+
+	.emthemesModez-banner-figure {
+		margin-bottom: 0;
+		text-align: center;
+		position: relative;
+	}
+
+	.emthemesModez-banner-figcaption {
+		position: absolute;
+		left: spacing("double");
+		right: spacing("double");
+		bottom: spacing("single") * 3;
+	}
+
+	.emthemesModez-banner-figcaption-body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.emthemesModez-banner-figcaption-title {
+		margin: 0 auto;
+		padding: spacing("eighth") spacing("quarter");
+		background-color: container("fill");
+		font-family: stencilFontFamily("headings-font");
+		font-size: fontSize("largest") * 1.5;
+		font-weight: fontWeight("medium");
+
+		@include breakpoint("small") {
+			font-size: fontSize("largest");
+		}
+
+		@include breakpoint("medium") {
+			font-size: fontSize("largest") * 1.5;
+		}
+	}
+}

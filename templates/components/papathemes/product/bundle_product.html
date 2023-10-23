@@ -1,0 +1,80 @@
+<div class="productView-bundleProducts-item">
+    <form class="productView-bundleProducts-form">
+        <div class="productView-bundleProducts-col productView-bundleProducts-col--img">
+            <a href="{{product.url}}" target="_blank" class="productView-bundleProducts-image-container"><img src="{{getImage product.main_image 'thumb_size' (cdn theme_settings.default_image_product)}}" alt="{{product.main_image.alt}}"></a>
+        </div>
+        <div class="productView-bundleProducts-col productView-bundleProducts-col--name">
+            <a href="{{product.url}}" target="_blank">{{#if product.title}}{{{product.title}}}{{else}}{{product.name}}{{/if}}</a>
+        </div>
+        {{#any customer (if theme_settings.restrict_to_login '!==' true)}}
+            <div class="productView-bundleProducts-col productView-bundleProducts-col--price">
+                <div class="productView-bundleProducts-col-wrap">
+                    {{#if product.sku}}
+                        <div class="productView-bundleProducts-sku">
+                            <strong class="productView-bundleProducts-sku-name">{{lang 'products.sku'}}</strong>
+                            <span class="productView-bundleProducts-sku-value" data-product-sku>{{product.sku}}</span>
+                        </div>
+                    {{/if}}
+                    {{#if product.pre_order}}
+                        <div class="card-text--preOrder">{{lang 'products.pre_order'}}</div>
+                    {{else if product.stock_level '===' 0}}
+                        <div class="outstock">Out of Stock</div>
+                    {{else}}
+                        {{#or product.can_purchase product.add_to_cart_url}}
+                            <div class="instock">In Stock</div>
+                        {{else}}
+                            <div class="outstock">Out of Stock</div>
+                        {{/or}}
+                    {{/if}}
+                    {{> components/products/price price=product.price}}
+                </div>
+            </div>
+        {{/any}}
+        <div class="productView-bundleProducts-col productView-bundleProducts-col--qty">
+            {{#any product.can_purchase product.add_to_cart_url}}
+                <div class="form-field form-field--increments">
+                    <div class="form-increment" data-bundle-quantity-change>
+                        <button class="button button--icon" data-action="dec">
+                            <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                            <i class="icon" aria-hidden="true">
+                                <svg>
+                                    <use xlink:href="#icon-keyboard-arrow-down" />
+                                </svg>
+                            </i>
+                        </button>
+                        <input class="form-input form-input--incrementTotal" name="qty_{{product.id}}" type="tel" value="1" data-quantity-min="{{product.min_purchase_quantity}}" data-quantity-max="{{product.max_purchase_quantity}}" min="1" pattern="[0-9]*" aria-live="polite" />
+                        <button class="button button--icon" data-action="inc">
+                            <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                            <i class="icon" aria-hidden="true">
+                                <svg>
+                                    <use xlink:href="#icon-keyboard-arrow-up" />
+                                </svg>
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            {{/any}}
+        </div>
+        {{#any customer (if theme_settings.restrict_to_login '!==' true)}}
+            <div class="productView-bundleProducts-col productView-bundleProducts-col--action">
+                <div class="productView-bundleProducts-col-wrap">
+                    {{#any product.has_options product.options.length}}
+                        <a href="{{product.url}}" data-event-type="product-click" class="button button--small button--primary">{{lang 'products.choose_options'}}</a>
+                    {{/any}}
+                    {{#if product.pre_order}}
+                        <a href="{{product.url}}" data-event-type="product-click" class="button button--small button--primary">{{lang 'products.pre_order'}}</a>
+                    {{/if}}
+                    {{#if product.add_to_cart_url}}
+                        <a href="{{product.add_to_cart_url}}" class="button button--small button--primary" {{#if theme_settings.ajax_add_to_cart}} data-emthemesmodez-cart-item-add{{/if}}>{{lang 'products.add_to_cart'}}</a>
+                    {{/if}}
+                    {{#all product.can_purchase (unless product.options.length) (unless product.pre_order)}}
+                        <a href="{{product.cart_url}}?action=add&product_id={{product.id}}" class="button button--small button--primary" {{#if theme_settings.ajax_add_to_cart}} data-emthemesmodez-cart-item-add{{/if}}>{{lang 'products.add_to_cart'}}</a>
+                    {{/all}}
+                    {{#if product.out_of_stock_message }}
+                        <a href="{{url}}" data-event-type="product-click" class="button button--small" data-product-id="{{product.id}}">{{product.out_of_stock_message}}</a>
+                    {{/if}}
+                </div>
+            </div>
+        {{/any}}
+    </form>
+</div>

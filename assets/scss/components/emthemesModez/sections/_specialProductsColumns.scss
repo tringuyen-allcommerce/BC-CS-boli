@@ -1,0 +1,98 @@
+.emthemesModez-specialProductsColumns {
+
+	@include breakpoint("medium") {
+		display: flex;
+		margin: 0 (-($column-gutter / 2)) spacing("single") * 4;
+	}
+
+	.u-sep-l {
+		@include breakpoint("medium") {
+			display: none;
+		}
+	}
+
+	.productList {
+
+		@include breakpoint("small") {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 (-($column-gutter / 2));
+		}
+
+		@include breakpoint("medium") {
+			display: block;
+			margin: 0;
+		}
+	}
+
+	.product {
+
+		@include breakpoint("small") {
+			flex: 1 1 50%;
+			padding: 0 $column-gutter / 2;
+
+			&:first-child + .product {
+				margin-top: 0;
+
+				@include breakpoint("medium") {
+					margin-top: spacing("single") * 2;
+				}
+			}
+		}
+
+		@include breakpoint("medium") {
+			padding: 0;
+		}
+	}
+
+	.listItem {
+		display: flex;
+		align-items: flex-start;
+		margin: 0 (-($column-gutter / 2));
+	}
+
+	.listItem-figure {
+		flex: 1 1 40%;
+		padding: 0 $column-gutter / 2;
+	}
+
+	.listItem-body {
+		flex: 1 1 60%;
+		padding: 0 $column-gutter / 2;
+	}
+
+	.listItem-content {
+		@include breakpoint("large") {
+			display: block;
+		}
+	}
+
+	.listItem-details {
+		@include breakpoint("large") {
+			display: block;
+			padding-right: 0;
+		}
+	}
+
+	.listItem-actions {
+		@include breakpoint("large") {
+			display: block;
+			width: auto;
+		}
+	}
+}
+
+.emthemesModez-specialProductsColumns-column {
+	@include breakpoint("medium") {
+		flex: 1 1 grid-calc(4, 12);
+		padding: 0 $column-gutter / 2;
+	}
+
+	+ .emthemesModez-specialProductsColumns-column {
+		margin-top: spacing("double");
+
+		@include breakpoint("medium") {
+			margin-top: 0;
+		}
+	}
+}

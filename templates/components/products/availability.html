@@ -1,0 +1,25 @@
+{{#if product}}
+    {{product.availability}}
+    {{#if product.availability '===' ''}}
+        {{#if product.stock_level '===' 0}}
+            <span class="outstock">Out of Stock</span>
+        {{else}}
+            {{#if product.can_purchase}}
+                <span class="instock">In Stock</span>
+            {{else}}
+                <span class="outstock">Out of Stock</span>
+            {{/if}}
+        {{/if}}
+    {{/if}}
+{{else}}
+    {{#if pre_order}}
+        <span class="card-text--preOrder">{{lang 'products.pre_order'}}</span>
+    {{else if stock_level '>' 0}}
+        <span class="instock">In Stock</span>
+    {{else if stock_level '===' 0}}
+        <span class="outstock">Out of Stock</span>
+    {{else}}
+        {{#if (occurrences availability 'In Stock') '>' 0}}<span class="instock">In Stock</span>{{/if}}
+        {{#if (occurrences availability 'Not in Stock') '>' 0}}<span class="outstock">Out of Stock'</span>{{/if}}
+    {{/if}}
+{{/if}}

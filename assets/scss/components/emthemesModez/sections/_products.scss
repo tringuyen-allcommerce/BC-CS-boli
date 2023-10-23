@@ -1,0 +1,21 @@
+
+
+// ----------------------------------------------------------------------------
+// Full fluid width new/featured/top products section in Home 04
+// ----------------------------------------------------------------------------
+
+.emthemesModez-section-products-laparis4 {
+	@include breakpoint("medium") {
+		width: 100vw;
+		margin-left: 50%;
+		transform: translateX(-50%);
+		position: relative;
+		padding: container("padding");
+	}
+
+	.productCarousel {
+		@include breakpoint("medium") {
+			margin-bottom: 0;
+		}
+	}
+}

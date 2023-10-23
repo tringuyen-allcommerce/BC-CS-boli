@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="no-js theme-style-{{theme_settings.theme_variation}} template-{{#replace '/' template}}-{{/replace}}{{#if theme_settings.hide_page_heading}} hide-page-heading{{/if}} layout-{{theme_settings.page_width}}" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        {{{stylesheet '/assets/css/theme.css'}}}
+        {{{stylesheet '/assets/vendor/animate.css'}}}
+        {{{stylesheet '/assets/vendor/sweetalert2.min.css'}}}
+        {{ getFontsCollection }}
+        <script src="{{cdn '/assets/modernizr-custom.js'}}"></script>
+
+        {{{head.scripts}}}
+        <!-- added for jam prj -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="{{cdn '/assets/js/jam.js'}}"></script>
+
+        {{{head.rsslinks}}}
+
+        {{inject 'themeSettings' theme_settings}}
+        {{inject 'genericError' (lang 'common.generic_error')}}
+        {{inject 'maintenanceMode' settings.maintenance}}
+        {{inject 'inDevelopment' in_development}}
+        {{inject 'urls' urls}}
+        {{{snippet 'htmlhead'}}}
+    </head>
+    <body class="{{#if theme_settings.product_uniform}}emthemesModez-productUniform{{/if}}">
+        {{{snippet 'header'}}}
+        <div class="icons-svg-sprite">{{> components/common/icons/icon-defs }}</div>
+
+        {{#if settings.privacy_cookie}}
+            {{> components/common/cookie}}
+        {{/if}}
+
+        {{#if theme_settings.theme_variation '==' 'laparis2'}}
+            {{> components/common/header-laparis2}}
+        {{else}}
+            {{> components/common/header}}
+        {{/if}}
+
+        {{> components/common/body }}
+        {{> components/common/footer }}
+
+        <div id="previewModal" class="modal modal--large" data-reveal>
+            <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+                <span aria-hidden="true">&#215;</span>
+            </a>
+            <div class="modal-content jam" oncopy="return false" oncut="return false" onpaste="return false"></div>
+            <div class="loadingOverlay"></div>
+        </div>
+        
+        <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+        <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+        <script>
+            // Exported in app.js
+            window.stencilBootstrap("{{template_file}}", {{jsContext}}).load();
+        </script>
+
+        <!-- Bolioptics -->
+        <script>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+            }
+        </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script>
+        (function($) {
+            function debounce(func, wait, immediate) {
+                var timeout;
+                return function() {
+                    var context = this, args = arguments;
+                    var later = function() {
+                        timeout = null;
+                        if (!immediate) func.apply(context, args);
+                    };
+                    var callNow = immediate && !timeout;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                    if (callNow) func.apply(context, args);
+                };
+            };
+
+            function moveGoogleTranslate() {
+                if ($(window).width() < 801) {
+                    if ($('#google_translate_element').parent().attr('id') !== 'google_translate_container_mobile') {
+                        $('#google_translate_element').appendTo('#google_translate_container_mobile');
+                    }
+                } else {
+                    if ($('#google_translate_element').parent().attr('id') !== 'google_translate_container_desktop') {
+                        $('#google_translate_element').appendTo('#google_translate_container_desktop');
+                    }
+                }
+            }
+
+            $(window).on('resize', debounce(function() {
+                moveGoogleTranslate();
+            }, 500));
+
+            function request($el) {
+                $.ajax({
+                    url: '/products.php?productId=' + $el.data('productId'),
+                    headers: {
+                        'stencil-options': '{"render_with":"products/availability"}'
+                    },
+                    success: function(data, status, xhr) {
+                        $el.html(data);
+                        $el.data('productAvailabilityLoaded', true);
+                    }
+                });
+            }
+
+            function requestAvailability() {
+                $('[data-product-availability]').each(function(i, el) {
+                    var $el = $(el);
+                    if ($el.html().trim() === '') {
+                        if (!$el.data('productAvailabilityLoaded')) {
+                            request($el);
+                        }
+                    }
+                });
+            }
+
+            $(function() {
+                requestAvailability();
+                moveGoogleTranslate();
+            });
+
+            $(document).ajaxSuccess(function(event, request, settings) {
+                if (settings.url.match(/search\.php/)) {
+                    setTimeout(function() {
+                        requestAvailability();
+                    }, 200);
+                }
+            });
+        })(window.themeJQuery);
+        </script>
+
+
+        <script>
+            (function($) {
+                window.jQueryTheme = $;
+                window.PapathemesShippingEstimatorSettings = {
+                    renderToSelector: '.productView-description',
+                    renderType: 'prepend',
+                    onRender: function(instance) {
+                        var $close = $('<button class="_close"><i class="fa fa-close"></i></button>');
+                        $close.on('click', function() {
+                            instance.$shippingEstimator.removeClass('show');
+                        });
+                        instance.$shippingEstimator.find('.page-heading').append($close);
+                    }
+                };
+            })(window.themeJQuery);
+        </script>
+        <script src="//papathemes.com/content/shippingestimatoraddon/shipping-estimator.bolioptics.com.js" async></script>
+        
+        {{{footer.scripts}}}
+        {{{snippet 'footer'}}}
+    </body>
+</html>

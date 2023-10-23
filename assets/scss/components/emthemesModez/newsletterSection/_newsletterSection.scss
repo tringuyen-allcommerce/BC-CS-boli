@@ -1,0 +1,70 @@
+.emthemesModez-newsletterSection {
+	background: stencilColor("newsletterSection-backgroundColor");
+	color: stencilColor("newsletterSection-color");
+	margin-bottom: spacing("single");
+
+	.emthemesModez-newsletterForm {
+		padding-top: spacing("double");
+		padding-bottom: spacing("double");
+		border-bottom: 1px solid rgba(stencilColor("newsletterSection-color"), 0.2);
+	}
+
+	.footer-info-heading {
+		color: stencilColor("newsletterSection-headingColor");
+	}
+
+	.form-input {
+		background-color: stencilColor("newsletterSection-backgroundColor");
+		border-color: stencilColor("newsletterSection-headingColor"); 
+		color: stencilColor("newsletterSection-headingColor");
+	}
+
+	.button--primary {
+		background-color: stencilColor("newsletterSection-headingColor");
+		border-color: stencilColor("newsletterSection-headingColor");
+		color: stencilColor("newsletterSection-backgroundColor");
+
+		&:hover,
+		&:active {
+			opacity: 0.7;
+		}
+	}
+}
+
+
+.emthemesModez-newsletterForm {
+
+	@include breakpoint("medium") {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.footer-info-heading {
+			margin: 0;
+			padding-right: $column-gutter;
+		}
+
+		> p {
+			margin-bottom: 0;
+			padding-right: $column-gutter;
+		}
+
+		.form {
+			width: 35%;
+			margin: 0;
+		}
+	}
+
+
+
+	.form-field {
+		margin: 0;
+	}
+
+	.form-prefixPostfix-button--postfix {
+		@include breakpoint("large") {
+			margin-left: 0;
+		}
+	}
+}
+

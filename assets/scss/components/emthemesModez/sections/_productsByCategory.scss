@@ -1,0 +1,195 @@
+.emthemesModez-productsByCategory {
+	@include breakpoint("medium") {
+		@include grid-row($behavior: "nest");
+		display: flex;
+		padding-top: spacing("single") + spacing("half");
+		margin-bottom: spacing("single") * 4;
+
+		&:before,
+		&:after {
+			display: none;
+		}
+
+		.emthemesModez-productsByCategory-imageColumn,
+		.emthemesModez-productsByCategory-productsColumn {
+			@include grid-column(6, $float: none);
+			flex: 1 1 50%;
+		}
+	}
+
+	.productGrid {
+		margin-bottom: 0;
+	}
+}
+
+.emthemesModez-productsByCategory-imageColumn {
+
+}
+
+.emthemesModez-productsByCategory-figure {
+	margin: 0;
+	position: relative;
+
+	&:before {
+		@include breakpoint("medium") {
+			content: ' ';
+			display: block;
+			position: absolute;
+			left: spacing("single") + spacing("half");
+			top: -(spacing("single") + spacing("half"));
+			right: -(spacing("single") + spacing("half"));
+			bottom: spacing("single") + spacing("half");
+			border: 2px solid container("borderColor");
+		}
+	}
+}
+
+.emthemesModez-productsByCategory-figcaption {
+	@include breakpoint("medium") {
+		position: absolute;
+		top: 66.6667%;
+		left: 30%;
+		right: -(spacing("single") + spacing("half"));
+		transform: translateY(-50%);
+		margin: 0;
+		background-color: container("fill");
+	}
+
+}
+
+.emthemesModez-productsByCategory-image {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
+.emthemesModez-productsByCategory-figcaption-body {
+	padding: spacing("double") spacing("double") + spacing("half");
+	border: 2px solid container("borderColor");
+}
+
+.emthemesModez-productsByCategory-heading {
+	font-family: stencilFontFamily("altBody-font");
+	font-size: fontSize("base") * 3;
+	font-weight: normal;
+	margin-top: -(spacing("single"));
+	margin-bottom: 0;
+}
+
+.emthemesModez-productsByCategory-text {
+	color: $color-primary;
+	margin-top: spacing("single");
+}
+
+.emthemesModez-productsByCategory-button {
+	border-width: 2px;
+	margin-top: spacing("single");
+	margin-bottom: 0;
+}
+
+.emthemesModez-productsByCategory-productsColumn {
+	margin-top: spacing("single");
+
+	@include breakpoint("medium") {
+		margin-top: 0;
+	}
+}
+
+.emthemesModez-productsByCategory-products {
+	@include breakpoint("medium") {
+		padding-left: spacing("single") * 5;
+	}
+}
+
+
+
+
+// Variation: Image right
+// ----------------------------------------------------------------------------
+
+.emthemesModez-productsByCategory--right {
+	.emthemesModez-productsByCategory-imageColumn {
+		order: 2;
+	}
+
+	.emthemesModez-productsByCategory-productsColumn {
+		order: 1;
+	}
+
+	.emthemesModez-productsByCategory-figure {
+		&:before {
+			@include breakpoint("medium") {
+				left: -(spacing("single") + spacing("half"));
+				right: spacing("single") + spacing("half");
+			}
+		}
+	}
+
+	.emthemesModez-productsByCategory-figcaption {
+		@include breakpoint("medium") {
+			right: 30%;
+			left: -(spacing("single") + spacing("half"));
+		}
+	}
+
+	.emthemesModez-productsByCategory-figcaption-body {
+		@include breakpoint("medium") {
+			text-align: right;
+		}
+	}
+
+	.emthemesModez-productsByCategory-products {
+		@include breakpoint("medium") {
+			padding-left: 0;
+			padding-right: spacing("single") * 5;
+		}
+	}
+}
+
+
+
+// Products Loading placeholder
+// ----------------------------------------------------------------------------
+
+.emthemesModez-productLoading {
+	@include grid-row($behavior: "nest");
+    font-size: 0; // 1
+}
+
+.emthemesModez-productLoading-item {
+	@include grid-column(6, $float: none);
+	display: inline-block;
+	font-size: fontSize("base"); // 1
+	vertical-align: top;
+	margin-bottom: spacing("double");
+
+	@include breakpoint("small") {
+	    width: grid-calc(4, $total-columns);
+	}
+
+	@include breakpoint("medium") {
+	    width: grid-calc(3, $total-columns);
+	}
+}
+
+.emthemesModez-productLoading--maxCol2 {
+	.no-csscolumns & {
+	    // scss-lint:disable SelectorDepth, NestingDepth
+	    .emthemesModez-productLoading-item {
+	        @include breakpoint("medium") {
+	            width: grid-calc(6, $total-columns);
+	        }
+	    }
+	}
+
+	.csscolumns & {
+	    @include breakpoint("medium") {
+	        @include grid-column(12);
+
+	        // scss-lint:disable SelectorDepth, NestingDepth
+	        .emthemesModez-productLoading-item {
+	            @include grid-column(6, $float: none);
+	        }
+	    }
+	}
+}

@@ -1,0 +1,16 @@
+// =============================================================================
+// PREVIEW CART (CSS)
+// =============================================================================
+//
+// 1. Override server-generated inline-css
+//
+// -----------------------------------------------------------------------------
+
+.previewCartCheckout-additionalCheckoutButtons {
+    .CheckoutButton {
+        margin: spacing("third") 0;
+    }
+    .paypal-smart-buttons {
+        width: 100%;
+    }
+}

@@ -1,0 +1,105 @@
+
+
+.emthemesModez-videoBlock {
+	margin-bottom: spacing("single") * 4;
+	background-color: container("fill", "dark");
+
+	@include breakpoint("small") {
+		display: flex;
+		align-items: center;
+	}
+}
+
+
+
+.emthemesModez-videoBlock-videoContainer {
+	@include breakpoint("small") {
+		$i: spacing("single") + spacing("half");
+		margin: (-$i) 0 $i $i;
+	}
+}
+
+.emthemesModez-videoBlock-toggle {
+	display: inline-block;
+	position: relative;
+
+	&.is-open {
+		display: none;
+	}
+
+	&:after {
+		content: '\f04b';
+		font-family: FontAwesome;
+		font-size: 1.5rem;
+		width: 3rem;
+		height: 3rem;
+		line-height: 3rem;
+		text-align: center;
+		display: inline-block;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -1.5rem;
+		margin-top: -1.5rem;
+		color: color("whites", "bright");
+		border: 2px solid color("whites", "bright");
+	}
+}
+
+a:hover,
+a:focus {
+	.emthemesModez-videoBlock-image {
+		filter: brightness(90%);
+	}
+}
+
+.emthemesModez-videoBlock-player {
+	max-width: 100%;
+}
+
+.emthemesModez-videoBlock-player--hide {
+	display: none;
+
+	&.is-open {
+		display: block;
+	}
+}
+
+.emthemesModez-videoBlock-textContainer {
+	text-align: center;
+	padding: spacing("single");
+}
+
+.emthemesModez-videoBlock-heading {
+	font-family: stencilFontFamily("headings-font");
+	font-weight: stencilFontWeight("headings-font");
+	font-size: fontSize("larger") * 2;
+	line-height: lineHeight("base");
+	margin: 0 0 spacing("half");
+}
+
+
+.emthemesModez-videoBlock-buttons {
+
+	.button {
+		margin-top: spacing("single");
+		font-family: stencilFontFamily("headings-font");
+		font-weight: stencilFontWeight("headings-font");
+		font-size: fontSize("large");
+		text-transform: none;
+		color: stencilColor("color-textBase");
+		background-color: stencilColor("body-bg");
+		line-height: lineHeight("base");
+		padding: spacing("quarter") spacing("half");
+		border: 0;
+
+		&:after {
+			content: ' ';
+			display: block;
+			height: 1px;
+			border-top: 1px solid stencilColor("color-textBase");
+			margin-top: -(spacing("eighth"));
+		}
+	}
+}

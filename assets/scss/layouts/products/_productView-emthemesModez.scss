@@ -1,0 +1,66 @@
+.productView {
+	display: flex;
+	flex-direction: column;
+
+	@include breakpoint("medium") {
+		display: block;
+		flex-direction: row;
+	}
+}
+
+.productView-images {
+	position: relative;
+	order: 1;
+
+	@include breakpoint("medium") {
+		position: sticky;
+        top: 35px;
+	}
+}
+
+.productView-image {
+	min-width: auto;
+	min-height: auto;
+}
+
+.productView-details {
+	order: 2;
+	margin-bottom: spacing("single");
+}
+
+.productView-brand a {
+	text-decoration: none;
+}
+
+.productView-options {
+	margin-top: 0;
+	margin-bottom: 0;
+
+	.form-field.hide {
+		position: absolute;
+		clip: rect(1px, 1px, 1px, 1px);
+	}
+
+	.form-field {
+		margin-bottom: spacing("single");
+	}
+
+	.form-action {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.productView-description {
+	order: 3;
+
+	@include breakpoint("medium") {
+        clear: right;
+        float: right;
+        width: grid-calc(6, $total-columns);
+    }
+
+	.tabs-contents {
+		margin-bottom: 0;
+	}
+}

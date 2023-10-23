@@ -1,0 +1,3 @@
+{
+  "components/papa-parallaxbag/sections/section-new-style-fashion": "<div class=\"emthemesModez-section emthemesModez-section--parallaxbag-newStyleFashion\" {{#if theme_settings.enable_parallax}}data-parallax=\"scroll\" data-image-src=\"{{lang 'parallaxbag.new_style_fashion.bg_img'}}\"{{else}}style=\"background-image:url({{lang 'parallaxbag.new_style_fashion.bg_img'}})\"{{/if}}>\n\t<div class=\"parallaxbag-newStyleFashionSection container\">\n\t\t<div class=\"parallaxbag-newStyleFashionSection-img\">{{{lang 'parallaxbag.new_style_fashion.html'}}}</div>\n\t</div>\n</div>\n"
+}

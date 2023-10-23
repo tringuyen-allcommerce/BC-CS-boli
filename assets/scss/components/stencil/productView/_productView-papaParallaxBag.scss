@@ -1,0 +1,298 @@
+// =============================================================================
+// PRODUCT VIEW (CSS)
+// =============================================================================
+
+
+// Container
+// -----------------------------------------------------------------------------
+
+
+
+// Images
+// -----------------------------------------------------------------------------
+
+.productView-images {
+    margin-bottom: 0;
+
+    @include breakpoint("small") {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    @include breakpoint("medium") {
+        margin-bottom: spacing("double");
+    }
+}
+
+
+.productView-imageCarousel-main {
+    @include u-listBullets("none");
+    margin-bottom: spacing("single");
+
+    @include breakpoint("small") {
+        order: 2;
+        width: calc(100% - #{remCalc(100px) + spacing("base") * 2});
+    }
+
+    .js & {
+        display: flex;
+        align-items: stretch;
+        overflow: hidden;
+
+        &.slick-slider {
+            display: block;
+            overflow: visible;
+        }
+    }
+}
+
+.productView-imageCarousel-main-item {
+    img {
+        margin: 0 auto;
+    }
+
+    .js & {
+        flex: 1 0 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.productView-imageCarousel-nav {
+    @include u-listHorizontal;
+    font-size: 0;
+    margin-bottom: spacing("single");
+
+    @include breakpoint("small") {
+        order: 1;
+        width: 100px;
+
+        li {
+            display: block;
+        }
+    }
+
+    &.slick-vertical {
+        padding: remCalc(40px) 0;
+
+        .slick-prev,
+        .slick-next {
+            background: container("fill");
+            height: auto;
+            width: 100%;
+
+            &:before {
+                height: remCalc(15px);
+                width: remCalc(20px);
+                margin: 0 auto;
+            }
+        }
+
+        .slick-disabled {
+            opacity: 1;
+
+            &:before {
+                opacity: 0.2;
+            }
+        }
+    }
+}
+
+.productView-imageCarousel-nav-item {
+    border: container("border");
+    margin: 0 spacing("half") spacing("half") 0;
+
+    @include breakpoint("small") {
+        margin: spacing("quarter") 0;
+    }
+
+    &.slick-current {
+        border-color: container("borderColor", "dark");
+    }
+
+    .slick-vertical &.slick-slide {
+        border: container("border");
+        cursor: pointer;
+
+        &:hover {
+            border-color: container("borderColor", "dark");
+        }
+
+        &.slick-current {
+            border-color: container("borderColor", "dark");
+        }
+    }
+
+    img {
+        margin: 0 auto;
+    }
+}
+
+
+// Product images with horizontal thumbnails
+// ----------------------------------------------------------------------------
+
+.productView-images--horizontal {
+    display: block;
+
+    .productView-imageCarousel-main {
+        width: 100%;
+    }
+
+    .productView-imageCarousel-nav {
+        width: 100%;
+
+        .js & {
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
+
+            &.slick-slider {
+                display: block;
+                overflow: visible;
+            }
+        }
+
+        .slick-prev,
+        .slick-next {
+            top: 50%;
+            margin-top: -(spacing("quarter"));
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.2s ease-in;
+        }
+
+        &:hover {
+            .slick-prev,
+            .slick-next {
+                opacity: 1;
+            }
+        }
+    }
+
+    .productView-imageCarousel-nav-item {
+        margin: 0 spacing("half") spacing("half") 0;
+
+        .js & {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+           
+        }
+    }
+}
+
+
+// Details
+// -----------------------------------------------------------------------------
+
+
+
+// Details - Product details
+// -----------------------------------------------------------------------------
+
+.productView-title {
+    font-size: fontSize("large");
+
+    @include breakpoint("medium") {
+        font-size: fontSize("largest");
+    }
+}
+
+
+// Details - Product price
+// -----------------------------------------------------------------------------
+
+.productView-rating {
+    
+
+    .fa {
+        vertical-align: text-top;
+    }
+}
+
+
+.productView-reviewLink {
+    font-size: fontSize("small");
+
+    > a {
+        text-decoration: none;
+    }
+}
+
+
+// Details - Product Information
+// -----------------------------------------------------------------------------
+
+.productView-info {
+    margin-top: spacing("half");
+
+    > :first-child {
+        margin-top: 0;
+    }
+}
+
+
+.productView-info-name,
+.productView-info-value {
+    float: left;
+}
+
+.productView-info-name {
+    clear: both;
+    margin-bottom: spacing("quarter");
+
+    font-family: stencilFontFamily("body-font");
+    font-size: fontSize("base");
+    font-weight: fontWeight("bold");
+}
+
+.productView-info-value {
+    margin-bottom: spacing("quarter");
+}
+
+.productView-product {
+    padding-bottom: spacing("single") - spacing("quarter");
+}
+
+// Details - Product options
+// -----------------------------------------------------------------------------
+
+.productView-options {
+    text-align: left;
+    
+    .form-increment {
+        border-color: container("borderColor");
+
+        .button {
+            border-color: container("borderColor");
+        }
+    }
+}
+
+.emthemesModez-customField-guide {
+    font-weight: $body-font-weight;
+    text-transform: none;
+    float: right;
+
+    &:before {
+        content: '\f18e';
+        font-family: FontAwesome;
+        color: $color-textSecondary;
+        padding-left: spacing("single");
+        padding-right: spacing("half");
+    }
+}
+
+// Product list (with images)
+// -----------------------------------------------------------------------------
+
+
+
+
+// Share products
+// -----------------------------------------------------------------------------

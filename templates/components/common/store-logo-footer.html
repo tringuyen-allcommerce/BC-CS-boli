@@ -1,0 +1,7 @@
+<a href="{{urls.home}}">
+    {{#if settings.store_logo.image}}
+        <img class="footer-logo-image {{#if theme_settings.footer_logo_invert}}footer-logo-image--invert{{/if}}" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+    {{else}}
+        <span class="footer-logo-text">{{settings.store_logo.title}}</span>
+    {{/if}}
+</a>

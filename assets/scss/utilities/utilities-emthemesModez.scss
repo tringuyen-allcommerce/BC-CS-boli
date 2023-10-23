@@ -1,0 +1,27 @@
+.u-sep {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	> * {
+		flex: 0 1 auto;
+		margin: 0 !important;
+	}
+
+	margin-bottom: spacing("double");
+}
+
+.u-sep-l,
+.u-sep-r {
+	flex: 1 1 auto;
+	border-top: stencilNumber("pageHeading-border") dotted container("borderColor", "dark");
+	height: 1px;
+}
+
+.u-sep-l {
+	margin-right: spacing("single") !important;
+}
+
+.u-sep-r {
+	margin-left: spacing("single") !important;
+}

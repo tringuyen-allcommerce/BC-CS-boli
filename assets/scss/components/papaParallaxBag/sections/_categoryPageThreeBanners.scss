@@ -1,0 +1,13 @@
+.emthemesModez-bannersContainer--parallaxbag-categoryPage-threeBanners {
+	margin-top: spacing("single") * 4;
+
+	.emthemesModez-banner {
+		@include breakpoint("small") {
+	        width: grid-calc(4, $total-columns);
+	    }
+	}
+
+    .emthemesModez-banner-figcaption-title {
+    	display: none;
+    }
+}

@@ -1,0 +1,116 @@
+// Quick Search
+// ----------------------------------------------------------------------------
+.navUser--hasQuickSearch {
+    display: block;
+    @include breakpoint("medium") {
+        padding: 0 spacing("half");
+    }
+}
+
+.visibleQuickSearch-form-container {
+    .form {
+        margin: 0;
+    }
+    .form-field {
+        position: relative;
+        margin: 0;
+    }
+
+    .form-input {
+        min-width: 180px;
+        background-color: $white;
+        border: 0;
+        border-bottom: container("border");
+        padding: spacing("quarter") spacing("half");
+        height: remCalc(30px);
+        border-radius: 4px 0 0 4px;
+    }
+    .form-prefixPostfix .button {
+        display: flex;
+        align-items: center;
+        height: remCalc(30px);
+        width: auto;
+        padding: spacing("quarter") spacing("half");
+        margin: 0;
+        border-radius: 0 4px 4px 0;
+        font-weight: bold;
+    }
+}
+
+.visibleQuickSearch-results-wrapper {
+    padding: 0;
+
+    &.is-open {
+        margin-top: 0;
+        left: auto !important;
+        right: spacing("half") !important;
+        width: 100% !important;
+    }
+}
+
+.visibleQuickSearch-results {
+    .modal-close {
+        display: none;
+    }
+    
+    .quickSearchResults-wrapper {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        border: container("border");
+    }
+
+    .quickSearchResults-action {
+        text-align: center;
+    }
+
+    .quickSearchMessage {
+        margin: spacing("single") 0;
+        font-size: fontSize("base");
+    }
+
+    .productGrid {
+        padding: spacing("quarter");
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+
+        .product {
+            width: 33.3333%;
+            padding: spacing("quarter");
+            display: flex;
+            align-items: stretch;
+        }
+    }
+
+    .card {
+        width: 100%;
+        display: flex;
+        align-items: stretch;
+        margin-bottom: 0;
+        border: 0;
+        background: stencilColor("card-figcaption-button-background");
+    }
+
+    .card-figure {
+        width: 80px;
+        padding: spacing("quarter");
+    }
+
+    .card-body {
+        width: calc(100% - 80px);
+        padding: spacing("quarter") spacing("quarter") spacing("quarter") spacing("half");
+    }
+
+    .card-title {
+        margin-top: spacing("quarter");
+    }
+
+    .emthemesModez-productUniform & .card-image {
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+
+    .sale-flag-side {
+        display: none;
+    }
+}

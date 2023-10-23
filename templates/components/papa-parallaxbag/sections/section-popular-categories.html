@@ -1,0 +1,22 @@
+<div class="emthemesModez-section emthemesModez-section--parallaxbag-popularCategories">
+	<div class="parallaxbag-popularCategoriesSection">
+		<h2 class="page-heading">{{lang 'parallaxbag.popular_categories.heading'}}</h2>
+		<div class="parallaxbag-popularCategoriesSection-columns">
+			{{#each (limit categories 3)}}
+			<div class="parallaxbag-popularCategoriesSection-column">
+				{{#if image}}
+					<div class="parallaxbag-popularCategoriesSection-image"><a href="{{url}}"><img src="{{getImage image 'zoom_size'}}" alt="{{name}}" /></a></div>
+				{{/if}}
+				<h3 class="parallaxbag-popularCategoriesSection-categoryName"><a href="{{url}}">{{name}}</a></h3>
+				{{#if children}}
+				<ul class="parallaxbag-popularCategoriesSection-subcategories">
+					{{#each children}}
+					<li class="parallaxbag-popularCategoriesSection-subcategories-item"><a href="{{url}}">{{name}}</a></li>
+					{{/each}}
+				</ul>
+				{{/if}}
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

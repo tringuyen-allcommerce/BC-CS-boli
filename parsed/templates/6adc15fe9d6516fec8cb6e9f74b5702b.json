@@ -1,0 +1,3 @@
+{
+  "components/emthemes-modez/common/navigation-label": "{{#if id}}\n{{#if (lang (concat 'emthemesmodez.megamenu.show_item_label_' id)) '==' 'yes'}}\n<span class=\"emthemesModez-navPage-label\" data-emthemesmodez-nav-page-label=\"{{concat 'emthemesmodez.megamenu.item_label_' id}}\">{{lang (concat 'emthemesmodez.megamenu.item_label_' id)}}</span>\n{{/if}}\n{{/if}}\n"
+}

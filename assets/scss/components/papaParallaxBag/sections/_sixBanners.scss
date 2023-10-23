@@ -1,0 +1,49 @@
+.parallabag-sixBannersSection {
+
+}
+
+.emthemesModez-banner--parallaxbag-sixBanners {
+
+	@include breakpoint("small") {
+		width: 50%;
+
+		&:nth-child(2) ~ & {
+			margin-top: $column-gutter;
+		}
+
+		&:nth-child(3),
+		&:nth-child(4) {
+			width: 100%;
+		}
+	}
+
+	@include breakpoint("medium") {
+		width: 25%;
+
+		&:nth-child(2) ~ & {
+			margin-top: 0;
+		}
+
+		&:nth-child(3) ~ & {
+			margin-top: $column-gutter;
+		}
+
+		&:nth-child(3),
+		&:nth-child(4) {
+			width: 50%;
+		}
+	}
+
+	.emthemesModez-banner-figure {
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	.emthemesModez-banner-figcaption {
+		display: none;
+	}
+
+	.emthemesModez-banner-image {
+		width: 100%;
+	}
+}

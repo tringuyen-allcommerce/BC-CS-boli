@@ -1,0 +1,3 @@
+{
+  "components/emthemes-modez/sections/section-text": "<section class=\"emthemesModez-textBlock\">\n\t\n\t{{#if heading}}{{#if heading '!=' ' '}}\n\t<h2 class=\"emthemesModez-textBlock-heading\">{{{heading}}}</h2>\n\t{{/if}}{{/if}}\n\n\t{{#if content}}{{#if content '!=' ' '}}\n\t<div class=\"emthemesModez-textBlock-content\">{{{content}}}</div>\n\t{{/if}}{{/if}}\n\n\t{{#if button}}{{#if button '!=' ' '}}\n\t<div class=\"emthemesModez-textBlock-buttons\">\n\t\t<a class=\"button button--primary\" href=\"{{link}}\">{{{button}}}</a>\n\t</div>\n\t{{/if}}{{/if}}\n</section>\n"
+}

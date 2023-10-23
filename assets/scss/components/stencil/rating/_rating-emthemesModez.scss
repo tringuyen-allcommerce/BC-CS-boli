@@ -1,0 +1,15 @@
+
+.icon--ratingEmpty {
+    color: stencilColor("icon-ratingEmpty");
+}
+
+.icon--ratingFull {
+    color: stencilColor("icon-ratingFull");
+}
+
+.rating--small {
+    .icon {
+        width: auto;
+        height: auto;
+    }
+}

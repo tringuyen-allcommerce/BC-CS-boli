@@ -1,0 +1,43 @@
+// ============================================================================
+// Make the main menu open when hover
+// 
+// 1. Import this file to allow the main menu open submenus when mouse hover
+// 
+// 2. Add data-collapsible-... to the main menu links in file navigation-list.html
+// 
+// <a class="navPages-action has-subMenu" href="{{url}}" 
+//     data-collapsible="navPages-{{id}}"
+//     data-collapsible-disabled-breakpoint="medium"
+//     data-collapsible-disabled-state="open"
+//     data-collapsible-enabled-state="closed">
+//     
+// ============================================================================
+
+@include breakpoint("large") {
+	.navPages-action.is-open {
+		background-color: transparent;
+	}
+
+	.navPage-subMenu.is-open {
+		display: none;
+	}
+
+	.navPages-item:hover,
+	.navPages-item:focus {
+		.navPages-action.is-open {
+			background-color: stencilColor("navPages-subMenu-backgroundColor");
+		}
+
+		.navPage-subMenu.is-open {
+			display: block;
+		}
+
+		.navPage-subMenu--mega2.is-open,
+		.navPage-subMenu--mega3.is-open,
+		.navPage-subMenu--mega4.is-open {
+			display: flex;
+		}
+	}
+
+
+}
