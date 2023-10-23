@@ -21,6 +21,7 @@ category:
     <p class="emthemesModez-category-image {{#if theme_settings.hide_category_image}}hide{{/if}}"><img src="{{getImage category.image 'zoom_size'}}"></p>
 {{/if}}
 <h1 class="page-heading page-heading--category {{#if theme_settings.hide_category_heading}}hide{{/if}}">{{category.name}}</h1>
+{{{region name="category_below_header"}}}
 <div class="page">
     {{#if theme_settings.categorypage_layout '!==' '1column'}}
         {{#or category.faceted_search_enabled category.subcategories category.shop_by_price}}
@@ -44,6 +45,7 @@ category:
                 <p>{{lang 'categories.no_products'}}</p>
             {{/unless}}
         {{/if}}
+        {{{region name="category_below_content"}}}
     </main>
 </div>
 

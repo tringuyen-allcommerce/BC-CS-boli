@@ -21,6 +21,8 @@
                 {{> components/cart/totals}}
             </div>
 
+            {{{region name="cart_below_totals"}}}
+
             {{#if cart.show_primary_checkout_button}}
                 <div class="cart-actions">
                     <a class="button button--primary" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>

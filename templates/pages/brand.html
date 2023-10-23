@@ -19,6 +19,7 @@ brand:
     <img src="{{getImage brand.image 'thumb_size'}}">
 {{/if}}
 <h1 class="page-heading">{{brand.name}}</h1>
+{{{region name="brand_below_header"}}}
 {{{snippet 'brand'}}}
 <div class="page">
     <aside class="page-sidebar" id="faceted-search-container">
@@ -31,6 +32,7 @@ brand:
         {{else}}
             <p>{{lang 'brands.no_products'}}</p>
         {{/if}}
+        {{{region name="brand_below_content"}}}
     </main>
 </div>
 

@@ -24,6 +24,8 @@ LAPARIS NOTES: INCLUDING VARIABLES ABOVE TO DISPLAY HOMEPAGES AS PAGE TEMPLATES
     </nav>
     {{/if}}
 
+    {{{region name="page_builder_content"}}}
+
     <div class="page-content page-content--centered">
         {{#replace '%%Syndicate%%' page.content}}
             {{> components/page/rss_feed}}

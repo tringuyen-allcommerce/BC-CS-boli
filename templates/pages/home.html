@@ -12,8 +12,10 @@ blog:
         limit: {{theme_settings.homepage_blog_posts_count}}
 ---
 {{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
     {{> components/emthemes-modez/sections/section section='slideshow'}}
     {{{snippet 'home_content'}}}
+    {{{region name="home_below_carousel"}}}
 {{/partial}}
 
 {{#partial "page"}}
@@ -24,20 +26,35 @@ blog:
 
 <div class="main full">
     {{> components/emthemes-modez/sections/section section=theme_settings.section1}}
+    {{{region name="home_below_section1"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section2}}
+    {{{region name="home_below_section2"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section3}}
+    {{{region name="home_below_section3"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section4}}
+    {{{region name="home_below_section4"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section5}}
+    {{{region name="home_below_section5"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section6}}
+    {{{region name="home_below_section6"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section7}}
+    {{{region name="home_below_section7"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section8}}
+    {{{region name="home_below_section8"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section9}}
+    {{{region name="home_below_section9"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section10}}
+    {{{region name="home_below_section10"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section11}}
+    {{{region name="home_below_section11"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section12}}
+    {{{region name="home_below_section12"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section13}}
+    {{{region name="home_below_section13"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section14}}
+    {{{region name="home_below_section14"}}}
     {{> components/emthemes-modez/sections/section section=theme_settings.section15}}
+    {{{region name="home_below_section15"}}}
 </div>
 {{/partial}}
 {{> layout/base}}
